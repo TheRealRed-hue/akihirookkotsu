@@ -1,0 +1,582 @@
+/* === Importação de fontes === */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap");
+
+/* === Reset e base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0f1c 0%, #1b2238 50%, #0a0f1c 100%);
+  min-height: 100vh;
+  font-family: "Crimson Text", serif;
+  color: #e6e6f0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === Runas flutuantes === */
+.rune {
+  position: absolute;
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  color: rgba(180, 220, 255, 0.75);
+  text-shadow: 0 0 8px rgba(150, 200, 255, 0.8);
+  animation: floatRune 6s infinite linear;
+  user-select: none;
+}
+@keyframes floatRune {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* === Container principal === */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* === Ficha do personagem === */
+.character-sheet {
+  background: rgba(25, 35, 55, 0.85);
+  border: 2px solid #5a8dbf;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(150, 200, 255, 0.3),
+    inset 0 0 50px rgba(20, 30, 50, 0.6);
+  position: relative;
+  backdrop-filter: blur(6px) brightness(1.05);
+}
+.character-sheet::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #5a8dbf, #1f4a7a, #7dd3fc, #1f4a7a);
+  border-radius: 15px;
+  z-index: -1;
+  animation: borderGlow 4s ease-in-out infinite alternate;
+}
+@keyframes borderGlow {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+/* === Cabeçalho === */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.character-name {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #7dd3fc;
+  text-shadow: 2px 2px 8px rgba(120, 200, 255, 1);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.character-title {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #bae6fd;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* === Títulos de seção === */
+.section-title,
+.section-title-fight {
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+.section-title {
+  color: #dbeafe;
+}
+.section-title-fight {
+  color: #7dd3fc;
+}
+.section-title::before,
+.section-title::after,
+.section-title-fight::before,
+.section-title-fight::after {
+  content: "❄";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+}
+.section-title::before,
+.section-title-fight::before {
+  left: -30px;
+  color: #38bdf8;
+}
+.section-title::after,
+.section-title-fight::after {
+  right: -30px;
+}
+.section-title-fight::before,
+.section-title-fight::after {
+  color: #0ea5e9;
+}
+
+/* === Blocos de atributos === */
+.stat-block {
+  background: rgba(20, 30, 50, 0.55);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #3b82f6;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  backdrop-filter: blur(4px);
+}
+.stat-block:hover {
+  border-color: #7dd3fc;
+  box-shadow: 0 0 18px rgba(150, 200, 255, 0.4);
+}
+.stat-label {
+  font-family: "Cinzel", serif;
+  font-size: 0.9rem;
+  color: #93c5fd;
+  margin-bottom: 8px;
+}
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f0f9ff;
+  text-shadow: 1px 1px 2px rgba(20, 40, 80, 0.8);
+}
+
+/* === Seções gerais === */
+.section {
+  background: rgba(20, 30, 50, 0.4);
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #3b82f6;
+  backdrop-filter: blur(3px);
+}
+
+/* === Lista de habilidades === */
+.skill {
+  background: rgba(20, 30, 50, 0.4);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #38bdf8;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.skill.proficient {
+  border-left-color: #7dd3fc;
+  font-weight: bold;
+  color: #e0f2fe;
+}
+
+/* === Imagem do personagem e setas === */
+.Imagemchar {
+  position: relative;
+  width: 60%;
+  margin: 0 auto 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-char {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(120, 200, 255, 0.7),
+    0 0 50px rgba(90, 180, 255, 0.4);
+  position: relative;
+}
+.img-char::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 15px;
+  background: radial-gradient(
+    circle,
+    rgba(120, 200, 255, 0.25) 0%,
+    transparent 80%
+  );
+  animation: glow 4s ease-in-out infinite alternate;
+  z-index: -1;
+}
+@keyframes glow {
+  0% {
+    opacity: 0.2;
+    box-shadow: 0 0 15px rgba(180, 220, 255, 0.3);
+  }
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 35px rgba(200, 240, 255, 0.9);
+  }
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: rgba(150, 200, 255, 0.8);
+  text-shadow: 0 0 8px rgba(200, 240, 255, 0.6);
+  cursor: pointer;
+  user-select: none;
+  animation: floatArrow 2s ease-in-out infinite;
+  transition: color 0.3s;
+  z-index: 2;
+}
+.arrow:hover {
+  color: #7dd3fc;
+}
+.arrow.left {
+  left: -35px;
+}
+.arrow.right {
+  right: -35px;
+}
+@keyframes floatArrow {
+  0%,
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-50%) translateX(5px);
+  }
+}
+
+/* === Runas de fundo === */
+.bg-rune {
+  position: fixed;
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  color: rgba(200, 230, 255, 0.25);
+  text-shadow: 0 0 15px rgba(200, 240, 255, 0.9),
+    0 0 25px rgba(150, 200, 255, 0.7);
+  pointer-events: none;
+  animation: glowRune 6s ease-in-out forwards;
+  z-index: 1;
+}
+@keyframes glowRune {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(0deg);
+  }
+  20% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+    text-shadow: 0 0 25px rgba(230, 250, 255, 1),
+      0 0 45px rgba(180, 220, 255, 0.9);
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* === Palavras flutuantes === */
+.word {
+  position: fixed;
+  font-family: "Cinzel", serif;
+  font-size: 1.4rem;
+  color: rgba(210, 240, 255, 0.8);
+  text-shadow: 0 0 12px rgba(240, 250, 255, 1),
+    0 0 25px rgba(180, 220, 255, 0.8);
+  pointer-events: none;
+  animation: floatWord 8s ease-in-out forwards;
+  z-index: 2;
+}
+@keyframes floatWord {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0.8) rotate(-5deg);
+  }
+  20% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50vh) scale(1) rotate(5deg);
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9) rotate(-5deg);
+  }
+}
+
+/* === Estilos de texto especiais === */
+.fala-amaldiçoada {
+  font-family: "Cinzel", serif;
+  color: #7dd3fc;
+  text-shadow: 0 0 6px #38bdf8;
+  text-align: start;
+  margin-bottom: 10px;
+  font-size: 23px;
+}
+.texto-fala-amaldiçoada {
+  font-family: "Cinzel", serif;
+  color: #f0f9ff;
+  text-shadow: 0 0 6px #1e3a8a;
+  margin-top: 5px;
+  font-size: 20px;
+}
+.texto-mark {
+  color: #7dd3fc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.texto-mark:hover {
+  background: rgba(120, 200, 255, 0.15);
+  box-shadow: 0 0 10px rgba(120, 200, 255, 0.6);
+  cursor: pointer;
+  text-decoration: underline;
+  text-shadow: 0 0 10px #7dd3fc, 0 0 20px #38bdf8;
+}
+
+/* === Títulos h3 === */
+h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  color: #93c5fd;
+  text-shadow: 0 0 12px #38bdf8, 0 0 25px #1e3a8a;
+}
+
+/* === Classes utilitárias === */
+.strong-bold {
+  font-weight: bold;
+  color: #7dd3fc;
+}
+.gold {
+  color: #e0f2fe;
+  font-weight: bold;
+  text-shadow: 0 0 10px #93c5fd, 0 0 20px #38bdf8;
+}
+
+/* === Links === */
+a {
+  color: #7dd3fc;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 35px;
+}
+a:hover {
+  color: #bae6fd;
+}
+
+/* === Inventário === */
+.inventory-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.inventory-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.item-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 8px;
+  object-fit: contain;
+}
+
+/* === Neve === */
+.snowflake {
+  position: fixed;
+  top: -5vh;
+  color: #ffffff;
+  pointer-events: none;
+  animation: fallSnow 8s linear forwards;
+  z-index: 2;
+  font-size: 1rem;
+  opacity: 0.8;
+  text-shadow: 0 0 8px rgba(240, 250, 255, 0.9),
+    0 0 12px rgba(200, 230, 255, 0.6);
+}
+
+@keyframes fallSnow {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg) scale(1.2);
+    opacity: 0.2;
+  }
+}
+
+.inventory-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+
+  /* Melhor aparência da scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1a1a2e; /* Firefox */
+}
+
+.inventory-list::-webkit-scrollbar {
+  width: 8px;
+}
+.inventory-list::-webkit-scrollbar-track {
+  background: #1a1a2e;
+  border-radius: 10px;
+}
+.inventory-list::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+.inventory-list::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Estilo dos itens */
+.inventory-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.inventory-item:hover {
+  background: rgba(125, 211, 252, 0.2);
+}
+
+/* Imagem do item */
+.inventory-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.inventario-text {
+  flex: 1;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 6px #00eeff;
+  font-size: 25px;
+}
+
+/* Tooltip */
+.inventory-item[data-tooltip] {
+  position: relative;
+}
+
+.inventory-item[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%; /* começa um pouco mais acima */
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+.inventory-item[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px); /* sobe suavemente */
+}
+
+/* Largura da barra */
+::-webkit-scrollbar {
+  width: 10px; /* largura vertical */
+  height: 10px; /* altura horizontal */
+}
+
+/* Fundo da barra */
+::-webkit-scrollbar-track {
+  background: #1a1a2e; /* cor de fundo da "trilha" */
+  border-radius: 10px;
+}
+
+/* Barra de rolagem (o "thumb") */
+::-webkit-scrollbar-thumb {
+  background: #57d8ff; /* cor da barra */
+  border-radius: 10px;
+}
+
+/* Quando passa o mouse por cima */
+::-webkit-scrollbar-thumb:hover {
+  background: #398ea8;
+}
+
+.icon-inv {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border: 1px solid #5a8dbf;
+  border-radius: 8px;
+}
+.icon-inv {
+  width: 100%; /* largura do container */
+  height: 100%; /* altura do container */
+  object-fit: cover; /* preenche todo o espaço, corta se necessário */
+  border: 1px solid #5a8dbf;
+  border-radius: 8px;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.icon-inv:hover {
+  box-shadow: 0 0 15px rgba(90, 141, 191, 0.7);
+  border-color: #7dd3fc;
+}

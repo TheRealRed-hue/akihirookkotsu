@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ficha de RPG - Casado com maldição</title>
+    <link rel="stylesheet" href="css/snow.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+  </head>
+  <body>
+    <!-- Runas -->
+    <div class="rune" aria-hidden="true"></div>
+
+    <main class="container">
+      <article class="character-sheet">
+        <!-- Header -->
+        <header class="header">
+          <h1 class="character-name">Combatente Classe</h1>
+        </header>
+
+        <!-- Proficiências -->
+        <section class="proficiencies">
+          <h2>Proficiências</h2>
+          <ul>
+            <li><strong>Armadura:</strong> Todas as armaduras e escudos</li>
+            <li><strong>Armas:</strong> Armas simples e armas marciais</li>
+            <li><strong>Ofício:</strong> Nenhum</li>
+            <li><strong>Salvaguarda:</strong> Força e Constituição</li>
+            <li><strong>Perícias:</strong>Atletismo, Percepção</li>
+          </ul>
+        </section>
+
+        <!-- Estilos de Luta -->
+        <section class="abilities">
+          <h2 class="section-title">Estilos de Luta</h2>
+          <div class="ability">
+            <h3 class="ability-title">Duelismo</h3>
+            <p class="ability-text">
+              Quando você empunhar uma arma de ataque corpo a corpo em uma mão e
+              nada na outra, você ganha +2 de bônus nas jogadas de dano com essa
+              arma. Você não pode escolher o mesmo estilo mais de uma vez.
+            </p>
+          </div>
+        </section>
+
+        <!-- Habilidades do Combatente -->
+        <section class="abilities">
+          <h2 class="section-title">Habilidades</h2>
+
+          <div class="ability">
+            <h3 class="ability-title">Retomar o Fôlego</h3>
+            <p class="ability-text">
+              Você possui uma reserva de estamina e pode usá-la para proteger a
+              si mesmo contra danos. No seu turno, você pode usar uma ação bônus
+              para recuperar pontos de vida igual a 1d10 + seu modificador de
+              Constituição + seu nível de Combatente. Uma vez que você use essa
+              característica, você precisa terminar um descanso curto ou longo
+              para usá-la de novo.
+            </p>
+          </div>
+
+          <div class="ability">
+            <h3 class="ability-title">Honra do Combatente</h3>
+            <p class="ability-text">
+              No 1º nível, você escolhe uma Honra de Combatente, a qual se
+              esforçará para seguir as técnicas e estilos de combate dela.
+              Escolha entre Armestre, Guardião e Strategos, todos detalhados no
+              final da descrição da classe. O arquétipo confere a você
+              características especiais no 1º nível e de novo nos 3º, 6º, 10º,
+              13º, 16º, 18º e 20º níveis.
+            </p>
+          </div>
+
+          <div class="ability">
+            <h3 class="ability-title">Honra do Armestre</h3>
+            <p class="ability-text">
+              Todo combatente pode ser habilidoso em batalha, mas apenas os
+              Armestres conseguem extrair todo potencial de suas armas,
+              conquistando, com isso, uma habilidade admirada por qualquer um
+              que deseje alcançar a supremacia marcial. Os Armestres se dedicam
+              de corpo e alma ao caminho do combate, desejando sempre aprimorar
+              sua técnica a níveis além da compreensão humana.
+            </p>
+          </div>
+
+          <div class="ability">
+            <h3 class="ability-title">Arma Vinculada (nível 1)</h3>
+            <p class="ability-text">
+              Ao escolher essa Honra no 1º nível, você deve escolher uma arma
+              que você tenha proficiência; qualquer arma semelhante será
+              considerada sua Arma Vinculada. Por exemplo, possuindo
+              proficiência em armas simples e marciais, você pode escolher se
+              vincular a Adagas, Clavas, Rapieiras, Espadas Curtas, Espadas
+              Longas, etc. Uma vez vinculado, você não pode ser desarmado
+              enquanto empunhar essa arma, a menos que esteja Incapacitado. Além
+              disso, você pode adicionar metade de seu modificador de
+              Inteligência, arredondado para baixo (mínimo de 1) ao acerto dessa
+              arma. Ao atingir o nível 10, você poderá trocar seu vínculo para
+              armas que compartilhem de uma propriedade, ainda só podendo ser
+              utilizada dessa maneira caso você possua proficiência. Ao atingir
+              o nível 18, você poderá trocar novamente seu vínculo para armas
+              que compartilhem um tipo de dano, como contundente, cortante ou
+              perfurante.
+            </p>
+          </div>
+
+          <div class="ability">
+            <h3 class="ability-title">Técnicas de Combate</h3>
+            <p class="ability-text">
+              No nível 1, você pode fazer uma técnica especial que demonstra seu
+              treinamento em combate. Você conhece uma Técnica de Combate à sua
+              escolha, as Técnicas de Combate são detalhadas no final da
+              descrição dessa classe. Você aprende uma Técnica de Combate
+              adicional quando alcança os níveis 4, 6, 9, 12 e 16. No início de
+              cada um de seus turnos em combate, você pode usar sua ação para
+              usar uma das técnicas escolhidas, à não ser que a técnica diga o
+              contrário. Quando você recebe acesso a novas técnicas, você também
+              pode substituir uma já conhecida por outra. Algumas de suas
+              Técnicas exigem que seu alvo faça uma salvaguarda para resistir
+              aos efeitos da técnica. O CD da salvaguarda é calculado da
+              seguinte forma:
+              <br />
+              <strong
+                >CD contra suas técnicas de combate = 8 + seu bônus de
+                proficiência + seu modificador de Força ou Destreza</strong
+              >
+              (uma vez escolhido não é possível mudar).
+            </p>
+          </div>
+
+          <div class="ability">
+            <h3 class="ability-title">Carregar Ataque</h3>
+            <p class="ability-text">
+              Você pode abdicar de atacar e de se movimentar neste turno para
+              potencializar seu próximo ataque com uma Arma Vinculada. Caso
+              acerte seu próximo ataque com a Arma Vinculada, ele será um
+              crítico automático e o modificador de dano é dobrado. Você pode
+              utilizar essa técnica um número de vezes igual a metade do seu
+              bônus de proficiência (arredondado para baixo) por descanso longo.
+            </p>
+          </div>
+
+          <div class="ability">
+            <h3 class="ability-title">Plenitude de Combate</h3>
+            <p class="ability-text">
+              Seja servindo o exército ou treinando com algum professor, você
+              aprendeu algumas técnicas de 204 combate. Você ganha os seguintes
+              benefícios: • Você ganha +1 em Força ou Destreza, à sua escolha,
+              até o limite de 20. • Escolha uma entre as Técnicas de Combate da
+              Honra do Armestre ou do Guardião da classe Combatente. Caso a
+              técnica usada obrigue o alvo a realizar uma salvaguarda, a CD será
+              igual a 8 + seu bônus de proficiência + seu modificador de Força
+              ou Destreza (à sua escolha).
+            </p>
+          </div>
+
+          <div class="ability">
+            <h3 class="ability-title">Crítico Aprimorado</h3>
+            <p class="ability-text">
+              Pré-requisito: Força ou Destreza 15 ou maior Ao escolher essa
+              técnica, você reduz sua margem de crítico em 1 em todos os seus
+              ataques com arma ou desarmados. Por exemplo, caso seja 20 se
+              tornará 19, se for 19 se tornará 18.
+            </p>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

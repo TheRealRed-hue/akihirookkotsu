@@ -1,0 +1,557 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c44);
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(30, 30, 47, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  padding: 2rem 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.character-name {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #f0a500;
+  text-shadow: 0 0 10px #f0a500aa;
+  margin-bottom: 0.3rem;
+}
+
+.character-title {
+  font-style: italic;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.player {
+  font-weight: 600;
+  color: #aaa;
+}
+
+/* Imagem do personagem */
+.Imagemchar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.img-char {
+  width: 520px;
+  height: 680px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #f0a500aa;
+  border: 3px solid #f0a500;
+  transition: transform 0.3s ease;
+}
+
+.img-char:hover {
+  transform: scale(1.05);
+}
+
+.arrow {
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  color: #f0a500;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.arrow:hover {
+  color: #ffcc33;
+}
+
+/* Seções */
+.section {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f0a500;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px #f0a500aa;
+}
+
+/* Atributos em grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-block {
+  background: #2c2c44;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0 10px #f0a500aa inset;
+  transition: background 0.3s ease;
+}
+
+.stat-block:hover {
+  background: #3a3a5a;
+}
+
+.stat-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: #ffcc33;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Skills e salvaguardas */
+.skills {
+  margin-bottom: 2rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill {
+  background: #2c2c44;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #ddd;
+  box-shadow: 0 0 8px #000 inset;
+  display: flex;
+  justify-content: space-between;
+  min-width: 140px;
+  transition: background 0.3s ease;
+}
+
+.skill span {
+  font-weight: 700;
+  color: #f0a500;
+}
+
+.skill.proficient {
+  background: #f0a500;
+  color: #1e1e2f;
+  box-shadow: 0 0 15px #f0a500;
+}
+
+.skill.proficient span {
+  color: #1e1e2f;
+}
+
+/* Técnica Inata */
+.flavor-text {
+  font-style: italic;
+  color: #bbb;
+  margin-top: 1rem;
+}
+
+/* Inventário */
+.gold {
+  color: #ffd700;
+  font-weight: 700;
+}
+
+ul {
+  list-style: inside disc;
+  margin-top: 0.5rem;
+  color: #ccc;
+}
+
+a.abrir-inv {
+  color: #f0a500;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+a.abrir-inv:hover {
+  color: #ffcc33;
+  text-decoration: underline;
+}
+
+/* Runas (decorativas) */
+.rune {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: url("../img/rune.png") no-repeat center/contain;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .character-name {
+    font-size: 2.2rem;
+  }
+
+  .img-char {
+    width: 150px;
+    height: 190px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .skill-list {
+    justify-content: center;
+  }
+}
+
+.word {
+  position: fixed;
+  color: #f0a500;
+  font-weight: 700;
+  text-shadow: 0 0 5px #f0a500cc;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1000;
+  max-width: 300px;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  animation: flickerOscillate 3s infinite;
+  white-space: pre-wrap;
+  filter: drop-shadow(0 0 2px #f0a500aa);
+}
+
+/* Animação que oscila, distorce e pisca */
+@keyframes flickerOscillate {
+  0%,
+  100% {
+    transform: translate(0, 0) skew(0deg, 0deg) rotate(0deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 2px #f0a500aa);
+  }
+  10% {
+    transform: translate(-2px, 1px) skew(-5deg, 3deg) rotate(-1deg);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 4px #f0a500ff);
+  }
+  20% {
+    transform: translate(1px, -1px) skew(4deg, -4deg) rotate(1deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 3px #f0a500cc);
+  }
+  30% {
+    transform: translate(-1px, 2px) skew(-3deg, 5deg) rotate(-2deg);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 5px #f0a500ff);
+  }
+  40% {
+    transform: translate(2px, -2px) skew(5deg, -3deg) rotate(2deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 2px #f0a500cc);
+  }
+  50% {
+    transform: translate(0, 0) skew(0deg, 0deg) rotate(0deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 2px #f0a500aa);
+  }
+  60% {
+    transform: translate(1px, 1px) skew(3deg, 3deg) rotate(1deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 4px #f0a500ff);
+  }
+  70% {
+    transform: translate(-2px, -1px) skew(-4deg, -5deg) rotate(-1deg);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 3px #f0a500cc);
+  }
+  80% {
+    transform: translate(2px, 2px) skew(5deg, 4deg) rotate(2deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 5px #f0a500ff);
+  }
+  90% {
+    transform: translate(-1px, -2px) skew(-3deg, -3deg) rotate(-2deg);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 2px #f0a500cc);
+  }
+}
+
+.glow {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffffaa, 0 0 20px #ffffff88, 0 0 30px #ffffff55;
+}
+
+.health {
+  color: #ff4d4d;
+  font-weight: 700;
+  text-shadow: 0 0 10px #ff4d4daa, 0 0 20px #ff4d4d88, 0 0 30px #ff4d4d55;
+  animation: healthPulse 2s infinite;
+}
+
+@keyframes healthPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #ff4d4daa, 0 0 20px #ff4d4d88, 0 0 30px #ff4d4d55;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 20px #ff4d4dff, 0 0 30px #ff4d4dcc, 0 0 40px #ff4d4d99;
+    transform: scale(1.05);
+  }
+}
+
+.Combatente_class {
+  color: #00bfff;
+  font-weight: 700;
+  text-shadow: 0 0 10px #00bfffae, 0 0 20px #00bfff7a, 0 0 30px #00bfff4d;
+  animation: classGlow 3s infinite;
+}
+
+.Combatente_class:hover {
+  color: #33ccff;
+  text-shadow: 0 0 20px #33ccffff, 0 0 30px #33ccffcc, 0 0 40px #33ccff99;
+  animation: none;
+  transform: scale(1.1);
+}
+
+a {
+  text-decoration: none;
+}
+@keyframes classGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #00bfffaa, 0 0 20px #00bfff7a, 0 0 30px #00bfff4d;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 20px #00bfffff, 0 0 30px #00bfffff, 0 0 40px #00bfff7a;
+    transform: scale(1.05);
+  }
+}
+
+.section {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #444;
+  background: #111;
+  color: #eee;
+  border-radius: 6px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #d4af37; /* tom dourado para destaque */
+}
+
+.highlight {
+  color: #f5d442;
+}
+
+.section-desc {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.ability {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #666;
+  border-radius: 4px;
+}
+
+.ability-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #9cd1ff;
+}
+
+.ability-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.ability-list,
+.info-list,
+.stats-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.ability-list li,
+.info-list li,
+.stats-list li {
+  padding: 0.3rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.subsection-title {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #6ec7a2;
+}
+
+p {
+  line-height: 1.5;
+}
+/* Barra lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background: #222;
+  color: #fff;
+  padding-top: 60px;
+  display: none; /* começa escondida */
+  z-index: 1000;
+}
+
+/* Botão de abrir/fechar */
+.sidebar-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #444;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  z-index: 1100;
+}
+
+/* Lista de canais */
+.channels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.channel {
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.channel:hover {
+  background: #333;
+}
+
+.channel.active {
+  background: #555;
+}
+/* Seção de proficiências */
+.proficiencies {
+  background-color: rgba(0, 0, 0, 0.5); /* fundo semi-transparente */
+  padding: 15px 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  color: #fff; /* texto branco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.proficiencies h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.proficiencies ul {
+  list-style-type: none; /* remove os bullets */
+  padding-left: 0;
+}
+
+.proficiencies li {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.proficiencies li strong {
+  color: #ffd700; /* destaque dourado para os títulos */
+}
+/* Seção de habilidades */
+.abilities {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.abilities h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.abilities ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.abilities li {
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.abilities li strong {
+  color: #7fffd4; /* destaque diferente do dourado das proficiências */
+}

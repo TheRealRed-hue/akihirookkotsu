@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caderno - Humano</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="blood-theme">
+    <!-- Runas Flutuantes (decorativo) -->
+    <div class="rune" style="left: 15%; animation-delay: 0s">ᚨ</div>
+    <div class="rune" style="left: 40%; animation-delay: 2s">ᚱ</div>
+    <div class="rune" style="left: 70%; animation-delay: 4s">ᛉ</div>
+
+    <div class="container">
+      <div class="character-sheet">
+        <div class="header">
+          <h1 class="character-name">Humano</h1>
+          <p class="character-title">Versatilidade Amaldiçoada</p>
+        </div>
+
+        <!-- Tipos de Técnica -->
+        <div class="section">
+          <h2 class="section-title">Tipos de Técnica</h2>
+          <ul class="inventory-list">
+            <li>
+              <span class="texto-mark">Truques (0 PEA):</span> utilidade fora de
+              combate.
+            </li>
+            <li>
+              <span class="texto-mark">Técnicas Menores (1–2 PEA):</span>
+              efeitos ofensivos/controle.
+            </li>
+            <li>
+              <span class="texto-mark">Técnicas Maiores (3–4 PEA):</span>
+              ataques ou buffs fortes.
+            </li>
+            <li>
+              <span class="texto-mark">Técnicas Supremas (5–6 PEA):</span>
+              devastadoras, 1x/descanso longo.
+            </li>
+          </ul>
+          <p>
+            <span class="strong-bold">Overcharge:</span> gastar PEA extra
+            aumenta dano, duração ou alcance.
+          </p>
+        </div>
+
+        <!-- Escala de Dano -->
+        <div class="section">
+          <h2 class="section-title">Escala de Dano</h2>
+          <ul class="inventory-list">
+            <li>Níveis 1–4: <span class="gold">d4</span></li>
+            <li>Níveis 5–10: <span class="gold">d6</span></li>
+            <li>Níveis 11–16: <span class="gold">d8</span></li>
+            <li>Níveis 17+: <span class="gold">d10</span></li>
+          </ul>
+        </div>
+
+        <!-- Humanos -->
+        <div class="section">
+          <h2 class="section-title">Visão Geral</h2>
+          <p>
+            Frágeis comparados às maldições, mas únicos na capacidade de
+            desenvolver
+            <span class="texto-mark">técnicas jujutsu</span> e manipular Energia
+            Amaldiçoada. Versáteis, adaptáveis e perigosos até para inimigos
+            mais fortes.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Atributos</h2>
+          <ul>
+            <li>+1 em dois atributos diferentes.</li>
+            <li>+1 Ponto de Energia Amaldiçoada no cálculo final.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Afinidade com Energia</h2>
+          <p>Na criação, escolha a fonte de sua energia:</p>
+          <ul>
+            <li><b>Sabedoria:</b> Força de Vontade.</li>
+            <li><b>Carisma:</b> Presença Espiritual.</li>
+          </ul>
+          <p>Define o modificador de PEA e a CD das técnicas.</p>
+        </div>
+
+        <div class="section magias">
+          <h2 class="section-title-fight">Talento Inato</h2>
+          <ol>
+            <li><b>Domínio Técnico:</b> aprende uma Técnica Menor.</li>
+            <li>
+              <b>Resiliência Amaldiçoada:</b> +2 PV máx, +1 PEA em descanso
+              curto.
+            </li>
+            <li>
+              <b>Instinto Rápido:</b> gastar 1 PEA → vantagem em iniciativa.
+            </li>
+          </ol>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Versatilidade Humana</h2>
+          <p>Proficiências extras:</p>
+          <ul>
+            <li>+1 perícia à escolha.</li>
+            <li>+1 arma simples.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Resistência à Maldição</h2>
+          <p>
+            Ao sofrer
+            <span class="texto-mark">dano necrótico ou psíquico</span>, pode
+            gastar 1 PEA como reação para reduzir:
+          </p>
+          <ul>
+            <li>Nível 1–4: 1d4</li>
+            <li>Nível 5+: 1d6</li>
+            <li>Nível 11+: 1d8</li>
+            <li>Nível 17+: 1d10</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title">Manutenção de efeitos (custo por turno)</h2>
+          <p>
+            Algumas técnicas exigem manutenção rodada a rodada (ex.: manter uma
+            barreira por 3 turnos).
+            <br /><br />
+            <strong>Regra padrão:</strong> determine um custo por rodada (ex.: 1
+            PEA por turno). No início do turno do personagem, ele decide se paga
+            o custo para manter o efeito. Caso não pague, o efeito termina
+            imediatamente.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Categorias de técnicas e CDs</h2>
+          <p>
+            As técnicas (o equivalente a “spells/skills” do sistema) são
+            organizadas em categorias:
+          </p>
+          <ul>
+            <li>
+              <strong>Truques (0 PEA):</strong> efeitos simples, utilizáveis à
+              vontade (ex.: empurrãozinho amaldiçoado, percepção curta de
+              presenças).
+            </li>
+            <li>
+              <strong>Técnicas Menores (1 PEA):</strong> pequenas manobras e
+              bônus rápidos.
+            </li>
+            <li>
+              <strong>Técnicas Médias (2–3 PEA):</strong> efeitos claros em
+              combate, como dano, controle ou buffs.
+            </li>
+            <li>
+              <strong>Técnicas Maiores (4–6 PEA):</strong> ataques poderosos ou
+              conjurações que mudam o campo de batalha.
+            </li>
+            <li>
+              <strong>Expansões / Supremas (6+ PEA):</strong> técnicas únicas e
+              devastadoras, incluindo <em>Expansão de Domínio</em> (ver seção
+              8).
+            </li>
+          </ul>
+
+          <h3>CD de resistência</h3>
+          <p>
+            Quando uma técnica exige teste de resistência:
+            <br />
+            <strong
+              >CD = 8 + bônus de proficiência + modificador do atributo de
+              conjuração (Sabedoria ou Carisma)</strong
+            >
+            <br /><br />
+            <em>Exemplo:</em> Proficiência +3 e atributo +3 → 8 + 3 + 3 =
+            <strong>CD 14</strong>.
+          </p>
+        </div>
+        <!-- Recuperação de PEA -->
+        <div class="section">
+          <h2 class="section-title">Recuperação de PEA</h2>
+
+          <p><strong>Regras simples e previsíveis:</strong></p>
+
+          <h3>Descanso Curto</h3>
+          <p>
+            Recupera metade do modificador (Sabedoria ou Carisma), arredondado
+            para baixo — mínimo <span class="gold">1 PEA</span>.
+          </p>
+          <ul>
+            <li>
+              Ex.: modificador +3 → 3 ÷ 2 = 1.5 → arredondado para baixo =
+              <span class="gold">1 PEA</span> recuperado.
+            </li>
+            <li>
+              Ex.: modificador +4 → 4 ÷ 2 = 2 →
+              <span class="gold">2 PEA</span> recuperados.
+            </li>
+          </ul>
+
+          <h3>Descanso Longo</h3>
+          <p>Recupera todo o pool: o PEA volta ao máximo.</p>
+
+          <h3>Opção (arriscada) — Controle da Energia (regra opcional)</h3>
+          <p>
+            Durante um descanso curto, você pode tentar um teste de
+            <strong>Sabedoria (CD 10)</strong>:
+          </p>
+          <ul>
+            <li>
+              <strong>Sucesso:</strong> recupera
+              <span class="gold">+1 PEA</span> adicional.
+            </li>
+            <li>
+              <strong>Falha:</strong> sofre <code>1d4</code> de dano necrótico
+              (ou consequência narrativa equivalente) e não recupera esse PEA
+              extra.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Como gastar PEA — usos básicos -->
+        <div class="section">
+          <h2 class="section-title">Como gastar PEA — usos básicos</h2>
+          <p>
+            Usos simples e padronizados que qualquer usuário de Energia
+            Amaldiçoada pode aplicar:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Reforço Corporal — 1 PEA</strong><br />
+              <span class="texto-fala-amaldiçoada">Efeito:</span> adiciona
+              <em>+1 dado de dano</em> ao ataque corpo a corpo (o dado escala
+              com o nível — ver seção de escalonamento).<br />
+              <span class="texto-mark">Uso típico:</span> melhorar um ataque na
+              rolagem.
+            </li>
+
+            <li>
+              <strong>Intuição Amaldiçoada — 1 PEA</strong><br />
+              <span class="texto-fala-amaldiçoada">Efeito:</span> role o dado de
+              controle (d4/d6/...) e some ao teste de perícia (um único
+              teste).<br />
+              <span class="texto-mark">Uso:</span> garantir um sucesso
+              importante fora de combate.
+            </li>
+
+            <li>
+              <strong>Fluxo Controlado — 2 PEA</strong><br />
+              <span class="texto-fala-amaldiçoada">Efeito:</span> vantagem em um
+              teste de ataque <em>OU</em> em um teste de resistência (escolha
+              quando gastar).<br />
+              <span class="texto-mark">Uso:</span> momento decisivo
+              (sobreviver/garantir acerto).
+            </li>
+
+            <li>
+              <strong>Explosão Bruta — 3 PEA</strong><br />
+              <span class="texto-fala-amaldiçoada">Efeito:</span> adiciona
+              <em>1 dado maior de dano</em> (normalmente necrótico/psíquico) à
+              ação — ideal para golpe forte ou finisher.<br />
+              <span class="texto-mark">Uso:</span> burst de dano.
+            </li>
+          </ul>
+
+          <p>
+            <em>Notas:</em> A expressão “<strong>+1 dado</strong>” significa
+            “adiciona <code>1dX</code>”, onde <code>X</code> depende do patamar
+            de nível (veja Escalonamento abaixo). Gastos únicos de raça ou
+            classe podem alterar custos ou tornar versões sem custo.
+          </p>
+        </div>
+
+        <!-- Escalonamento da potência -->
+        <div class="section">
+          <h2 class="section-title">
+            Escalonamento da potência (qual dado usar)
+          </h2>
+          <p>
+            Para manter progressão simples: qualquer efeito que diga “<strong
+              >adiciona 1d</strong
+            >” usa um dado que sobe conforme o nível:
+          </p>
+          <ul class="inventory-list">
+            <li>Níveis <strong>1–4</strong> → <span class="gold">d4</span></li>
+            <li>Níveis <strong>5–10</strong> → <span class="gold">d6</span></li>
+            <li>
+              Níveis <strong>11–16</strong> → <span class="gold">d8</span>
+            </li>
+            <li>Níveis <strong>17+</strong> → <span class="gold">d10</span></li>
+          </ul>
+
+          <p><strong>Exemplos:</strong></p>
+          <ul>
+            <li>Reforço Corporal no nível 3: +<code>1d4</code> de dano.</li>
+            <li>Reforço Corporal no nível 7: +<code>1d6</code> de dano.</li>
+            <li>
+              Explosão Bruta no nível 12: adiciona <code>1d8</code> de dano
+              extra.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Visão geral -->
+        <div class="section">
+          <h2 class="section-title">Visão geral</h2>
+          <p>
+            A <strong>Energia Amaldiçoada (PEA)</strong> é um pool de pontos que
+            substitui/acompanha magias e poderes: serve para ativar técnicas,
+            reforçar ataques, manter efeitos e realizar ações especiais.
+            Funciona parecido com <em>ki</em> do monge, mas é pensada para ser
+            simples, previsível e escalável com o nível do personagem.
+          </p>
+        </div>
+
+        <!-- Cálculo do pool (PEA) -->
+        <div class="section">
+          <h2 class="section-title">Cálculo do pool (PEA)</h2>
+
+          <p><strong>Fórmula única:</strong></p>
+          <p>
+            <code
+              >PEA = Nível do personagem + Modificador de Sabedoria OU Carisma
+              (escolhido na criação)</code
+            >
+          </p>
+
+          <h3>Exemplos (passo a passo)</h3>
+          <ul>
+            <li>
+              Personagem nível 1 com Sabedoria +2:
+              <code>1 + 2 = 3 → 3 PEA</code>.
+            </li>
+            <li>
+              Personagem nível 5 com Sabedoria +3:
+              <code>5 + 3 = 8 → 8 PEA</code>.
+            </li>
+            <li>
+              Personagem nível 11 com Carisma +4:
+              <code>11 + 4 = 15 → 15 PEA</code>.
+            </li>
+          </ul>
+
+          <p>
+            <em>Dica:</em> escolha Sabedoria se você quer um caster mais
+            “interno/contido” (vontade), ou Carisma se prefere técnicas ligadas
+            à presença/manifestação espiritual. A escolha é fixa na criação e
+            afeta cálculo de PEA e CD das técnicas.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
