@@ -3,39 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ficha de RPG - Alma Fragmentada</title>
-    <link rel="stylesheet" href="css/snow.css" />
+    <title>Arsenal - Alma Fragmentada</title>
+    <link rel="stylesheet" href="css/arsenal.css" />
     <link rel="icon" type="image/png" href="img/logo.png" />
-    <link rel="stylesheet" href="css/inventario.css" />
   </head>
+
   <body>
-    <!-- Runas -->
-    <div class="rune" aria-hidden="true"></div>
+    <main class="arsenal-container">
+      <aside class="weapon-list">
+        <h2>Arsenal</h2>
+        <ul>
+          <li
+            class="weapon-item"
+            data-name="Katana dos Setentas cortes"
+            data-damage="1d8 ou 1d10 com as duas mãos"
+            data-desc="“Não há honra em setenta mortes.
+Apenas o som do vento… lembrando que eu ainda respiro.”"
+            data-img="img/Katana.jpg"
+          >
+            Katana dos Setentas cortes
+          </li>
+          <li
+            class="weapon-item"
+            data-name="Diario pequeno"
+            data-damage="Item sem dano"
+            data-desc="Tentei manter meus sentimentos em um pequeno caderno, era a unica coisa que a rika não afastava"
+            data-img="img/Diario.jpg"
+          >
+            Diario pequeno
+          </li>
+          <li
+            class="weapon-item"
+            data-name="Roupa comum"
+            data-damage="Item sem dano"
+            data-desc="Roupas comuns, nada de especial"
+            data-img="img/casualcloths.jpg"
+          >
+            Roupas comuns
+          </li>
 
-    <main class="container">
-      <article class="character-sheet">
-        <section class="inventory">
-          <h2 class="inventario-text">Inventário</h2>
-          <ul class="inventory-list">
-            <li class="inventory-item" data-tooltip="Cestus - Dano 1d4">
-              <img src="img/cestus.jpg" alt="Cestus" class="icon-inv" />
-              cestus - 1d4 dano
-            </li>
-            <li
-              class="inventory-item"
-              data-tooltip="Caderno/Diario - Anotações importantes"
-            >
-              <img src="img/caderno.jpg" alt="Caderno" />
-              Caderno/Diario
-            </li>
+          <li
+            class="weapon-item"
+            data-name="Id do Akihiro"
+            data-damage="Sem dano"
+            data-desc="Identificação"
+            data-img="img/RG.png"
+          >
+            Identidade
+          </li>
+        </ul>
+      </aside>
 
-            <li class="inventory-item" data-tooltip="RG">
-              <img src="img/rg.png" alt="RG" />
-              RG + CPF
-            </li>
-          </ul>
-        </section>
-      </article>
+      <section class="weapon-display">
+        <img id="weapon-img" src="img/katana.jpg" alt="Katana" />
+        <div class="weapon-info">
+          <h3 id="weapon-name">Katana dos Setentas cortes</h3>
+          <p id="weapon-damage">
+            <strong>Dano:</strong> 1d8 ou 1d10 com duas mãos
+          </p>
+          <p id="weapon-desc">
+            “Não há honra em setenta mortes. Apenas o som do vento… lembrando
+            que eu ainda respiro.”
+          </p>
+        </div>
+      </section>
     </main>
+
+    <script src="js/arsenal.js"></script>
   </body>
 </html>
