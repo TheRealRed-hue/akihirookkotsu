@@ -555,3 +555,11 @@ p {
 .abilities li strong {
   color: #7fffd4; /* destaque diferente do dourado das proficiências */
 }
+
+.character-name-grade {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000aa;
+  margin-bottom: 0.3rem;
+}
