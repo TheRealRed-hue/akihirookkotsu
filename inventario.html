@@ -3,265 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ficha de RPG - Casado com maldição</title>
-    <link rel="stylesheet" href="css/snow.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/png" href="img/logo.png" />
+    <title>Arsenal — Garou Instinct</title>
+
+    <!-- Fontes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tema Garou -->
+    <link rel="stylesheet" href="css/garou-theme.css" />
+
+    <!-- Estilo específico do Arsenal -->
+    <link rel="stylesheet" href="css/arsenal.css" />
+
+    <meta name="theme-color" content="#0b0d0e" />
   </head>
+
   <body>
-    <!-- Runas -->
-    <div class="rune" aria-hidden="true"></div>
+    <!-- Canvas de energia -->
+    <canvas id="garouCanvas" aria-hidden="true"></canvas>
 
-    <main class="container">
-      <article class="character-sheet">
-        <!-- Header -->
-        <header class="header">
-          <h1 class="character-name">Combatente Classe</h1>
-        </header>
+    <div class="garou-root">
+      <header class="garou-header">
+        <div class="title-wrap">
+          <h1 class="char-name">Arsenal de Akihiro Okkotsu</h1>
+          <div class="char-sub">Inventário de Combate e Itens Pessoais</div>
+        </div>
 
-        <!-- Proficiências -->
-        <section class="proficiencies">
-          <h2>Proficiências</h2>
+        <div class="controls">
+          <a href="index.html" class="btn small ghost">Ficha</a>
+          <a href="inventario.html" class="btn small ghost">Inventário</a>
+          <button id="toggleEnergy" class="btn small">Alternar Aura</button>
+        </div>
+      </header>
+
+      <main class="sheet container arsenal-layout">
+        <aside class="weapon-list card">
+          <h2 class="section-title">Arsenal</h2>
           <ul>
-            <li><strong>Armadura:</strong> Todas as armaduras e escudos</li>
-            <li><strong>Armas:</strong> Armas simples e armas marciais</li>
-            <li><strong>Ofício:</strong> Nenhum</li>
-            <li><strong>Salvaguarda:</strong> Força e Constituição</li>
-            <li><strong>Perícias:</strong> Atletismo, Percepção</li>
+            <li
+              class="weapon-item"
+              data-name="Katana dos Setentas Cortes"
+              data-damage="1d8 ou 1d10 com as duas mãos"
+              data-desc="“Não há honra em setenta mortes. Apenas o som do vento… lembrando que eu ainda respiro.”"
+              data-img="img/Katana.jpg"
+            >
+              Katana dos Setentas Cortes
+            </li>
+
+            <li
+              class="weapon-item"
+              data-name="Diário Pequeno"
+              data-damage="Item sem dano"
+              data-desc="Tentei manter meus sentimentos em um pequeno caderno — era a única coisa que a Rika não afastava."
+              data-img="img/Diario.jpg"
+            >
+              Diário Pequeno
+            </li>
+
+            <li
+              class="weapon-item"
+              data-name="Roupas Comuns"
+              data-damage="Item sem dano"
+              data-desc="Roupas simples, nada de especial."
+              data-img="img/casualcloths.jpg"
+            >
+              Roupas Comuns
+            </li>
+
+            <li
+              class="weapon-item"
+              data-name="Identificação de Akihiro"
+              data-damage="Sem dano"
+              data-desc="Identificação pessoal. Registro: Akihiro Okkotsu."
+              data-img="img/RG.png"
+            >
+              Identificação
+            </li>
+
+            <li
+              class="weapon-item"
+              data-name="Desert Eagle Black Powder"
+              data-damage="1d10"
+              data-desc="“Jackpot.”"
+              data-img="img/municao.jpg"
+            >
+              Desert Eagle Black Powder
+            </li>
+
+            <li
+              class="weapon-item"
+              data-name="Cestus"
+              data-damage="1d4"
+              data-desc="Bate. Bate. Bate... sem parar até restar apenas o silêncio."
+              data-img="img/cestus2.jpg"
+            >
+              Cestus
+            </li>
+
+            <li
+              class="weapon-item"
+              data-name="Katana Amaldiçoada de Grau 4"
+              data-damage="1d10"
+              data-desc="Sombria e viva — pulsa como se tivesse sede de sangue."
+              data-img="img/katana2.jpg"
+            >
+              Katana Amaldiçoada de Grau 4
+            </li>
           </ul>
-        </section>
+        </aside>
 
-        <!-- Estilos de Luta -->
-        <section class="abilities">
-          <h2 class="section-title">Estilos de Luta</h2>
-          <div class="ability">
-            <h3 class="ability-title">Duelismo</h3>
-            <p class="ability-text">
-              Quando você empunhar uma arma de ataque corpo a corpo em uma mão e
-              nada na outra, você ganha +2 de bônus nas jogadas de dano com essa
-              arma. Você não pode escolher o mesmo estilo mais de uma vez.
+        <section class="weapon-display card">
+          <div class="weapon-visual">
+            <img
+              id="weapon-img"
+              src="img/katana.jpg"
+              alt="Imagem da arma selecionada"
+            />
+            <div class="energy-rings" aria-hidden="true"></div>
+          </div>
+
+          <div class="weapon-info">
+            <h3 id="weapon-name" class="section-title">
+              Katana dos Setentas Cortes
+            </h3>
+            <p id="weapon-damage">
+              <strong>Dano:</strong> 1d8 ou 1d10 com duas mãos
+            </p>
+            <p id="weapon-desc">
+              “Não há honra em setenta mortes. Apenas o som do vento… lembrando
+              que eu ainda respiro.”
             </p>
           </div>
         </section>
+      </main>
+    </div>
 
-        <!-- Habilidades do Combatente -->
-        <section class="abilities">
-          <h2 class="section-title">Habilidades</h2>
-
-          <div class="ability">
-            <h3 class="ability-title">Retomar o Fôlego</h3>
-            <p class="ability-text">
-              Você possui uma reserva de estamina e pode usá-la para proteger a
-              si mesmo contra danos. No seu turno, você pode usar uma ação bônus
-              para recuperar pontos de vida igual a 1d10 + seu modificador de
-              Constituição + seu nível de Combatente. Uma vez que você use essa
-              característica, você precisa terminar um descanso curto ou longo
-              para usá-la de novo.
-            </p>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Honra do Combatente</h3>
-            <p class="ability-text">
-              No 1º nível, você escolhe uma Honra de Combatente, a qual se
-              esforçará para seguir as técnicas e estilos de combate dela.
-              Escolha entre Armestre, Guardião e Strategos, todos detalhados no
-              final da descrição da classe. O arquétipo confere a você
-              características especiais no 1º nível e de novo nos 3º, 6º, 10º,
-              13º, 16º, 18º e 20º níveis.
-            </p>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Honra do Armestre</h3>
-            <p class="ability-text">
-              Todo combatente pode ser habilidoso em batalha, mas apenas os
-              Armestres conseguem extrair todo potencial de suas armas,
-              conquistando, com isso, uma habilidade admirada por qualquer um
-              que deseje alcançar a supremacia marcial. Os Armestres se dedicam
-              de corpo e alma ao caminho do combate, desejando sempre aprimorar
-              sua técnica a níveis além da compreensão humana.
-            </p>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Arma Vinculada (nível 1)</h3>
-            <p class="ability-text">
-              Ao escolher essa Honra no 1º nível, você deve escolher uma arma
-              que você tenha proficiência; qualquer arma semelhante será
-              considerada sua Arma Vinculada. [...]
-            </p>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Técnicas de Combate</h3>
-            <p class="ability-text">
-              No nível 1, você pode fazer uma técnica especial que demonstra seu
-              treinamento em combate. [...]
-            </p>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Carregar Ataque</h3>
-            <p class="ability-text">
-              Você pode abdicar de atacar e de se movimentar neste turno para
-              potencializar seu próximo ataque com uma Arma Vinculada. [...]
-            </p>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Plenitude de Combate</h3>
-            <p class="ability-text">
-              Seja servindo o exército ou treinando com algum professor, você
-              aprendeu algumas técnicas de combate. [...]
-            </p>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Crítico Aprimorado</h3>
-            <p class="ability-text">
-              Pré-requisito: Força ou Destreza 15 ou maior. [...]
-            </p>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Surto de Ação</h3>
-            <p class="ability-text">
-              A partir do 2º nível, você pode forçar seu limite para além do
-              normal por um momento. [...]
-            </p>
-          </div>
-        </section>
-
-        <!-- Técnicas de Combate Corporal -->
-        <section class="abilities">
-          <h2 class="section-title">Técnicas de Combate Corporal</h2>
-
-          <div class="ability">
-            <h3 class="ability-title">Contra-Porrada</h3>
-            <p class="ability-text">
-              <strong>Tipo:</strong> Reação / movimento ofensivo<br />
-              <strong>Custo:</strong> Nenhum<br />
-              <strong>Uso:</strong> 1 vez por descanso longo<br />
-              <strong>Ação Necessária:</strong> Reação (quando um inimigo te
-              ataca)<br />
-              <strong>Alcance:</strong> Corpo a corpo
-            </p>
-            <p class="ability-text">
-              O usuário lê perfeitamente o ataque do inimigo e, no instante do
-              golpe, desfere um contra-ataque imediato, concentrando toda sua
-              energia e força física. Pode causar grande dano e anular a
-              ofensiva inimiga.
-            </p>
-            <ul>
-              <li>
-                <strong>Efeito:</strong> Ataque de Reação — faça uma jogada de
-                ataque corpo a corpo contra o inimigo que te atacou.
-              </li>
-              <li><strong>Dano:</strong> Dano normal + 2dX</li>
-              <li>
-                <strong>Se reduzir o inimigo a 0 PV:</strong> o ataque inimigo é
-                anulado.
-              </li>
-              <li>
-                <strong>Crítico:</strong> Triplica o dano total e cancela todos
-                os efeitos do ataque inimigo.
-              </li>
-            </ul>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Jab</h3>
-            <p class="ability-text">
-              <strong>Tipo:</strong> Ataque físico / Corpo a corpo<br />
-              <strong>Custo:</strong> Nenhum<br />
-              <strong>Ação Necessária:</strong> 1 ação<br />
-              <strong>Alcance:</strong> Corpo a corpo
-            </p>
-            <p class="ability-text">
-              Um soco rápido e preciso que abre brechas e desgasta o inimigo.
-              Quando usado em sequência, prepara golpes mais pesados.
-            </p>
-            <ul>
-              <li><strong>Dano:</strong> 1dX + modificador de Força</li>
-              <li>
-                <strong>Abertura:</strong> concede vantagem no próximo ataque
-                físico contra o mesmo alvo.
-              </li>
-              <li>
-                <strong>Acúmulo de Combo:</strong> cada Jab consecutivo aumenta
-                o dano do próximo ataque em +1dX (máx. +3dX).
-              </li>
-              <li>
-                <strong>Interrupção:</strong> se o alvo for derrubado por um
-                Jab, perde a ação de movimento no próximo turno.
-              </li>
-            </ul>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Direto</h3>
-            <p class="ability-text">
-              <strong>Tipo:</strong> Ataque físico / Corpo a corpo<br />
-              <strong>Custo:</strong> Nenhum<br />
-              <strong>Ação Necessária:</strong> 1 ação<br />
-              <strong>Alcance:</strong> Corpo a corpo
-            </p>
-            <p class="ability-text">
-              Um soco forte lançado logo após um Jab, aproveitando a abertura
-              criada. Ideal para combos físicos.
-            </p>
-            <ul>
-              <li><strong>Dano:</strong> 2dX + modificador de Força</li>
-              <li>
-                <strong>Combo Hook:</strong> se usado após um Jab, +1dX de dano
-                adicional.
-              </li>
-              <li>
-                O alvo sofre desvantagem em testes de Força ou Destreza até o
-                início do próximo turno.
-              </li>
-              <li>
-                Se o alvo for derrubado, perde a ação de movimento e -1 em
-                ataque no próximo turno.
-              </li>
-            </ul>
-          </div>
-
-          <div class="ability">
-            <h3 class="ability-title">Cruzado</h3>
-            <p class="ability-text">
-              <strong>Tipo:</strong> Ataque físico / Corpo a corpo<br />
-              <strong>Custo:</strong> Nenhum<br />
-              <strong>Ação Necessária:</strong> 1 ação<br />
-              <strong>Alcance:</strong> Corpo a corpo
-            </p>
-            <p class="ability-text">
-              Golpe final potente lançado em arco, aproveitando totalmente a
-              abertura criada pelo Jab e Direto. O ápice da sequência.
-            </p>
-            <ul>
-              <li><strong>Dano:</strong> 3dX + modificador de Força</li>
-              <li>
-                <strong>Combo Hook:</strong> se usado após Direto (seguindo o
-                Jab), +2dX de dano adicional.
-              </li>
-              <li>
-                O alvo sofre desvantagem em testes de Força e Destreza até o
-                início do próximo turno.
-              </li>
-              <li>
-                Se derrubar o inimigo, ele perde a ação de movimento e ataque no
-                próximo turno.
-              </li>
-              <li>
-                <strong>Crítico:</strong> Triplica o dano total da sequência
-                (Jab + Direto + Cruzado).
-              </li>
-            </ul>
-          </div>
-        </section>
-      </article>
-    </main>
+    <!-- Scripts -->
+    <script src="js/arsenal.js"></script>
+    <script src="js/garou-theme.js"></script>
   </body>
 </html>
