@@ -1,781 +1,268 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ficha de RPG - Casado com maldição</title>
-    <link rel="stylesheet" href="css/snow.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/png" href="img/logo.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ficha — Garou Instinct Theme</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/garou-theme.css" />
+
+    <!-- Meta for color scheme -->
+    <meta name="theme-color" content="#0b0d0e" />
   </head>
   <body>
-    <!-- Botão que abre/fecha a sidebar -->
-    <button
-      class="sidebar-toggle"
-      aria-expanded="false"
-      aria-controls="sidebar"
-      id="sidebarToggle"
-    >
-      ☰ Canais
-    </button>
+    <!-- energy canvas (JS draws subtle particles) -->
+    <canvas id="garouCanvas" aria-hidden="true"></canvas>
 
-    <!-- Sidebar -->
-    <aside
-      id="sidebar"
-      class="sidebar"
-      role="navigation"
-      aria-label="Navegação de Fichas"
-    >
-      <div class="sidebar-header">
-        <h3>Canais — Ficha / Rika</h3>
-      </div>
+    <div class="garou-root">
+      <header class="garou-header">
+        <div class="title-wrap">
+          <h1 class="char-name">Akihiro Okkotsu</h1>
+          <div class="char-sub">
+            Samurai/Combatente/Lutador • Grau 4 • Título
+          </div>
+        </div>
 
-      <ul class="channels">
-        <ul class="channels">
-          <li class="channel" data-href="rika.html">Rika — Resumo</li>
+        <div class="controls">
+          <button id="toggleEnergy" class="btn small">Alternar Aura</button>
+          <a href="inventario.html" class="btn small ghost">Inventário</a>
+          <a href="combatente.html" class="btn small ghost">Combatente </a>
+          <a href="lutador.html" class="btn small ghost">Lutador </a>
+          <a href="samurai.html" class="btn small ghost">Samurai </a>
+          <a href="rika.html" class="btn small ghost">Rika</a>
+        </div>
+      </header>
 
-          <li class="channel" data-href="index.html">Okkotsu — Seção</li>
-        </ul>
-      </ul>
-    </aside>    
+      <main class="sheet container">
+        <section class="left-col">
+          <div class="portrait card">
+            <div class="portrait-image">
+              <!-- se tiver imagem, coloque aqui -->
+              <img src="img/personagem2.png" alt="Retrato do personagem" />
+            </div>
+            <div class="energy-rings" aria-hidden="true"></div>
+          </div>
 
-    <!-- Runas -->
-    <div class="rune" aria-hidden="true"></div>
+          <div class="card stats">
+            <h2 class="section-title">Atributos</h2>
+            <div class="stats-grid">
+              <div class="stat-block">
+                <div class="label">Força</div>
+                <div class="value">14</div>
+              </div>
+              <div class="stat-block">
+                <div class="label">Destreza</div>
+                <div class="value">16</div>
+              </div>
+              <div class="stat-block">
+                <div class="label">Constituição</div>
+                <div class="value">14</div>
+              </div>
+              <div class="stat-block">
+                <div class="label">Inteligência</div>
+                <div class="value">10</div>
+              </div>
+              <div class="stat-block">
+                <div class="label">Sabedoria</div>
+                <div class="value">18</div>
+              </div>
+              <div class="stat-block">
+                <div class="label">Carisma</div>
+                <div class="value">8</div>
+              </div>
+              <div class="stat-block">
+                <div class="label">PEA</div>
+                <div class="value">15</div>
+              </div>
+            </div>
+         <div class="card abilities">
+  <h2 class="section-title">Habilidades & Técnicas</h2>
 
-    <main class="container">
-      <article class="character-sheet">
-        <!-- Header -->
-        <header class="header">
-          <h1 class="character-name">Akihiro Okkotsu</h1>
-          <h1 class="character-name-grade">Grau especial</h1>
-          <p class="character-title">
-            "“Se for para proteger quem eu amo, eu sacrificarei tudo.”"
-          </p>
-          <p class="player">Jogador: Red</p>
-        </header>
+  <!-- Técnica 1 -->
+  <div class="ability">
+    <h3 class="ability-title">Copiar Técnica</h3>
+    <ul class="ability-list">
+      <li><strong>Custo:</strong> 3 PEA</li>
+      <li><strong>Ação Necessária:</strong> 1 Ação</li>
+      <li><strong>Alcance:</strong> 9 m</li>
+      <li>
+        <strong>Efeito:</strong> Copia uma técnica amaldiçoada de inimigo ou
+        aliado observado ou tocado.
+      </li>
+      <li>
+        <strong>Duração:</strong> 1 rodada + bônus de nível de Okkotsu
+      </li>
+      <li>
+        <strong>Teste de Controle de Energia:</strong> CD = 10 + nível do alvo
+        (falha = técnica falha)
+      </li>
+      <li>
+        <strong>Combo Hook:</strong> Técnica copiada pode ser usada
+        imediatamente em combo com ações de Okkotsu ou Rika. Se usada após
+        <em>Flash Negro</em>, ganha <strong>+1dX</strong> extra e pode estender
+        combos acumulativos.
+      </li>
+    </ul>
+  </div>
 
-        <!-- Imagem -->
-        <section class="Imagemchar" aria-label="Imagem do personagem">
-          <button class="arrow left" aria-label="Personagem anterior">
-            &#9664;
-          </button>
-          <img
-            src="img/personagem.jpg"
-            alt="Imagem do personagem Katsuro Inumaki"
-            class="img-char"
-          />
-          <button class="arrow right" aria-label="Próximo personagem">
-            &#9654;
-          </button>
+  <!-- Técnica 2 -->
+  <div class="ability">
+    <h3 class="ability-title">Reforço Corporal</h3>
+    <ul class="ability-list">
+      <li><strong>Custo PEA:</strong> 1</li>
+      <li><strong>Ação:</strong> Bônus</li>
+      <li>
+        <strong>Efeito:</strong> Adiciona +d4 ao dano ou à CA/resistência contra
+        o próximo ataque físico recebido.
+      </li>
+      <li>
+        <strong>Especial:</strong> Combo Hook — se o reforço for usado em ataque
+        e o alvo cair a 0 PV, você pode gastar 1 PEA adicional para fazer outro
+        ataque como reação.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Técnica 3 -->
+  <div class="ability">
+    <h3 class="ability-title">Prisão Amaldiçoada</h3>
+    <ul class="ability-list">
+      <li><strong>Custo PEA:</strong> 3</li>
+      <li><strong>Ação:</strong> Principal</li>
+      <li>
+        <strong>Efeito:</strong> Um inimigo fica preso no lugar até o fim do
+        próximo turno. Ele pode tentar escapar com teste de Força ou Destreza
+        contra sua CD de energia amaldiçoada.
+      </li>
+      <li><strong>Alcance:</strong> 10 pés</li>
+      <li>
+        <strong>Combo Hook:</strong> Se o inimigo não conseguir escapar, qualquer
+        ataque ou habilidade usada contra ele ganha +1dX de dano ou outro efeito
+        secundário escolhido (ex.: empurrar, derrubar).
+      </li>
+    </ul>
+  </div>
+
+  <!-- Técnica 4 -->
+  <div class="ability">
+    <h3 class="ability-title">Golpe da Sombra</h3>
+    <ul class="ability-list">
+      <li><strong>Custo PEA:</strong> 2</li>
+      <li><strong>Ação:</strong> Principal</li>
+      <li>
+        <strong>Efeito:</strong> O inimigo sofre desvantagem em testes de
+        resistência de Sabedoria até o próximo turno.
+      </li>
+      <li><strong>Dano:</strong> 2dX + mod. do atributo de energia</li>
+      <li>
+        <strong>Combo Hook:</strong> Se o alvo já estiver com desvantagem ou
+        marcado (ex: Visão da Energia ou Prisão Amaldiçoada), você pode gastar 1
+        PEA extra para reforçar o efeito, fazendo com que o próximo ataque que
+        você ou aliados fizerem contra ele ignore resistências.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Técnica 5 -->
+  <div class="ability">
+    <h3 class="ability-title">Flash Negro</h3>
+    <ul class="ability-list">
+      <li><strong>Custo PEA:</strong> 1</li>
+      <li><strong>Ação:</strong> Principal</li>
+      <li>
+        <strong>Efeito:</strong> Corpo a corpo ou à distância (dependendo do
+        estilo do personagem).
+      </li>
+      <li>
+        <strong>Descrição:</strong> O Flash Negro é um ataque devastador que
+        sincroniza energia amaldiçoada com impacto físico, distorcendo o
+        espaço-tempo no ponto de contato. Cada acerto bem-sucedido prepara o
+        terreno para combos consecutivos, aumentando o dano e a vantagem
+        estratégica do usuário.
+      </li>
+      <li>
+        <strong>Teste:</strong> Faça um Teste de Controle de Energia
+        Amaldiçoada, CD = 15 + nível do inimigo.
+      </li>
+      <li>
+        <strong>Resultados:</strong><br />
+        - Falha leve (até 4 abaixo): ataque normal, sofre fadiga (-1 em Ataque e
+        CA até o próximo turno).<br />
+        - Falha grave (5+ abaixo): ataque normal, sofre retrocesso (3dX de dano
+        + desvantagem no próximo ataque).<br />
+        - Sucesso: +1 dado de dano.<br />
+        - Sucesso extremo (5+ acima): dano dobrado, recupera 1 PEA, +1 dado
+        acumulativo para o próximo ataque e +2 em Ataque até o próximo turno.
+      </li>
+      <li>
+        <strong>Acúmulo:</strong> Cada Flash Negro consecutivo bem-sucedido
+        acumula +2 dados extras de dano, até o primeiro ataque falho.
+      </li>
+      <li>
+        <strong>Overcharge:</strong> Gaste 2 PEA adicionais para atingir todos
+        os inimigos adjacentes ao alvo primário (metade do dano).
+      </li>
+      <li>
+        <strong>Combo Hook:</strong> Se usado após magias ou técnicas que
+        marquem o alvo (como Visão da Energia ou Prisão Amaldiçoada), cada Flash
+        Negro bem-sucedido ganha +1 dado extra e ignora resistências.
+      </li>
+    </ul>
+  </div>
+</div>
+
         </section>
 
-        <!-- Aparência -->
-        <section class="section" aria-labelledby="aparencia-title">
-          <h2 id="aparencia-title" class="section-title">Aparência</h2>
-          <p>
-            Olhos: azuis <strong class="gold">|</strong> Cabelos: Bagunçado
-            <strong class="gold">|</strong>
-            Pele: Branca
-          </p>
-          <p>
-            Idade: 15 <strong class="gold">|</strong> Altura: 1,76m
-            <strong class="gold">|</strong> Peso: 65kg
-          </p>
-          <p>Facção: Okkotsu, atualmente estudante de ensino médio</p>
-        </section>
-
-        <!-- Informações Básicas -->
-        <section class="section" aria-labelledby="info-basicas-title">
-          <h2 id="info-basicas-title" class="section-title">
-            Informações Básicas
-          </h2>
-          <p>
-            Classe:
-            <a href="combatente.html" class="Combatente_class">Combatente</a>
-            <p> </p>
-            <a href="lutador.html" class="Combatente_class">Lutador</a>
-            <strong class="gold">(nível 1)</strong>,
-            <a href="samurai.html" class="Combatente_class">Samurai</a>
-            <strong class="gold">(nível 1)</strong>, Combatente
-            <strong class="gold">(nível 2)</strong>
-            <strong class="gold">|</strong> Raça: Humano
-          </p>
-          <p>Alinhamento: — <strong class="gold">|</strong> Inspiração: —</p>
-          <p>Bônus de Proficiência: +2 <strong class="gold">|</strong> XP: 0</p>
-        </section>
-
-        <!-- Atributos -->
-        <section class="stats-grid" aria-label="Atributos do personagem">
-          <div class="stat-block">
-            <div class="stat-label">Força</div>
-            <div class="stat-value">14 (+2)</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-label">Destreza</div>
-            <div class="stat-value">16 (+3)</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-label">Constituição</div>
-            <div class="stat-value">14 (+2)</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-label">Inteligência</div>
-            <div class="stat-value">10 (0)</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-label">Sabedoria</div>
-            <div class="stat-value">18 (4)</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-label">Carisma</div>
-            <div class="stat-value">8 ()</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-label">PEA</div>
-            <div class="stat-value">15</div>
-          </div>
-        </section>
-
-        <!-- Combate -->
-        <section class="section" aria-labelledby="combate-title">
-          <h2 id="combate-title" class="section-title">Combate</h2>
-          <p><strong class="glow">CA:</strong> 17</p>
-          <p><strong class="glow">Iniciativa:</strong> Destreza</p>
-          <p><strong class="glow">Deslocamento:</strong> 8m</p>
-          <p>
-            <strong class="glow">PV:</strong>
-            <strong class="health">139 / 139</strong>
-          </p>
-          <p><strong class="glow">Hp Temporário:</strong> 0</p>
-          <p><strong class="glow">PEA:</strong> 15 / 15</p>
-          <p>
-            <strong class="glow">Dado de Vida:</strong> 1d12 + modificador de
-            Constituição
-          </p>
-
-          <p class="gold">Yen: <strong class="gold">600</strong></p>
-        </section>
-
-        <!-- Perícias -->
-        <section class="skills" aria-labelledby="pericias-title">
-          <h2 id="pericias-title" class="section-title">Perícias</h2>
-          <div class="skill-list">
-            <div class="skill">Arcanismo <span>+0</span></div>
-            <div class="skill">História <span>+0</span></div>
-            <div class="skill proficient">Investigação <span>+2</span></div>
-            <div class="skill proficient">Percepção <span>+2</span></div>
-            <div class="skill">Persuasão <span>+2</span></div>
-            <div class="skill">Acrobacia <span>+0</span></div>
-            <div class="skill">Atletismo <span>+0</span></div>
-            <div class="skill">Furtividade <span>+0</span></div>
-            <div class="skill proficient">Arcanismo <span>+2</span></div>
-          </div>
-        </section>
-
-        <!-- Salvaguardas -->
-        <section class="skills" aria-labelledby="salvaguardas-title">
-          <h2 id="salvaguardas-title" class="section-title">Salvaguardas</h2>
-          <div class="skill-list">
-            <div class="skill proficient">Força <span>+2</span></div>
-            <div class="skill">Destreza <span>0</span></div>
-            <div class="skill proficient">Constituição <span>+2</span></div>
-            <div class="skill">Inteligência <span>0</span></div>
-            <div class="skill">Sabedoria <span>0</span></div>
-            <div class="skill">Carisma <span>0</span></div>
-          </div>
-        </section>
-        <!-- Técnica Inata -->
-        <section
-          class="section tecnica-inata"
-          aria-labelledby="tecnica-inata-title"
-        >
-          <h2 id="tecnica-inata-title" class="section-title">
-            Técnica Inata: <span class="highlight">Copy</span>
-          </h2>
-
-          <p class="section-desc">
-            Okkotsu canaliza energia amaldiçoada de forma excepcional, podendo
-            invocar
-            <strong>Rika</strong>, seu espírito amaldiçoado, e copiar técnicas
-            de inimigos ou aliados para criar combos devastadores. Sua energia é
-            maleável e poderosa, permitindo ataques precisos e reações rápidas
-            em combate.
-          </p>
-
-          <div class="ability">
-            <h3 class="ability-title">
-              Passiva: <span class="highlight">Acúmulo de Energia</span>
-            </h3>
-            <p class="ability-text">
-              Okkotsu começa o combate com <strong>+8 PEA</strong> extra e, ao
-              eliminar um inimigo ou causar dano crítico, recupera
-              <strong>4 PEA</strong>.
-            </p>
+        <aside class="right-col">
+          <div class="card info">
+            <h2 class="section-title">Info</h2>
+            <p><span class="meta">Player:</span> Akihiro Okkotsu</p>
+            <p><span class="meta">Raça:</span> Humano</p>
+            <p><span class="meta">Alinhamento:</span> Neutro</p>
           </div>
 
-          <!-- Invocação de Rika -->
-          <div class="ability">
-            <h3 class="ability-title">1. Invocação de Rika</h3>
-            <ul class="ability-list">
-              <li><strong>Custo:</strong> 4 PEA</li>
-              <li><strong>Ação Necessária:</strong> 1 Ação</li>
-              <li>
-                <strong>Efeito:</strong> Okkotsu invoca Rika, seu espírito
-                amaldiçoado protetor.
-              </li>
-              <li>
-                <strong>Duração:</strong> 1 minuto ou até cair inconsciente
-              </li>
-              <li>
-                <strong>Nota:</strong> Rika atua de forma independente, mas
-                permanece vinculada a Okkotsu.
-              </li>
-              <li>
-                <strong>Combo Hook:</strong> Permite que qualquer ataque de
-                Okkotsu cause <strong>+1dX</strong> de dano no turno da
-                invocação.
-              </li>
+          <div class="card combat">
+            <h2 class="section-title">Combate</h2>
+            <div class="combat-grid">
+              <div class="combat-item">
+                <div class="label">HP</div>
+                <div class="value hp">139</div>
+              </div>
+              <div class="combat-item">
+                <div class="label">CA</div>
+                <div class="value">17</div>
+              </div>
+              <div class="combat-item">
+                <div class="label">Deslocamento</div>
+                <div class="value">8m</div>
+              </div>
+              <div class="combat-item">
+                <div class="label">PEA</div>
+                <div class="value">19</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card inventory">
+            <h2 class="section-title">Inventário Rápido</h2>
+            <ul class="inv-list">
+              <li>Doce: 15x</li>
+              <li>Desert Eagle</li>
+              <li>Arma: Espada</li>
             </ul>
           </div>
+        </aside>
+      </main>
+    </div>
 
-          <!-- Copiar Técnica -->
-          <div class="ability">
-            <h3 class="ability-title">2. Copiar Técnica</h3>
-            <ul class="ability-list">
-              <li><strong>Custo:</strong> 3 PEA</li>
-              <li><strong>Ação Necessária:</strong> 1 Ação</li>
-              <li><strong>Alcance:</strong> 9 m</li>
-              <li>
-                <strong>Efeito:</strong> Copia uma técnica amaldiçoada de
-                inimigo ou aliado observado ou tocado.
-              </li>
-              <li>
-                <strong>Duração:</strong> 1 rodada + bônus de nível de Okkotsu
-              </li>
-              <li>
-                <strong>Teste de Controle de Energia:</strong> CD = 10 + nível
-                do alvo (falha = técnica falha)
-              </li>
-              <li>
-                <strong>Combo Hook:</strong> Técnica copiada pode ser usada
-                imediatamente em combo com ações de Okkotsu ou Rika. Se usada
-                após <em>Flash Negro</em>, ganha <strong>+1dX</strong> extra e
-                pode estender combos acumulativos.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Rika -->
-        <section class="section rika" aria-labelledby="rika-title">
-          <h2 id="rika-title" class="section-title">
-            Rika: <span class="highlight">Espírito Amaldiçoado</span>
-          </h2>
-
-          <h3 class="subsection-title">Informações Básicas</h3>
-          <ul class="info-list">
-            <li><strong>Tipo:</strong> Espírito Amaldiçoado / Invocação</li>
-            <li><strong>Tamanho:</strong> Grande</li>
-            <li><strong>Deslocamento:</strong> 12 m</li>
-            <li>
-              <strong>CA:</strong> 14 + modificador de Destreza do invocador
-            </li>
-            <li>
-              <strong>PV:</strong> 300 + 10dX + modificador de Constituição do
-              invocador
-            </li>
-          </ul>
-
-          <h3 class="subsection-title">Atributos</h3>
-          <ul class="stats-list">
-            <li>Força: 18 (+4)</li>
-            <li>Destreza: 14 (+2)</li>
-            <li>Constituição: 16 (+3)</li>
-            <li>Inteligência: 6 (-2)</li>
-            <li>Sabedoria: 14 (+2)</li>
-            <li>Carisma: 8 (-1)</li>
-          </ul>
-
-          <h3 class="subsection-title">Resistências e Vulnerabilidades</h3>
-          <ul class="info-list">
-            <li>
-              <strong>Resistências:</strong> Dano necrótico, dano físico não
-              mágico
-            </li>
-            <li><strong>Vulnerabilidades:</strong> Dano radiante</li>
-          </ul>
-
-          <h3 class="subsection-title">Sentidos</h3>
-          <p>Percepção passiva 15</p>
-
-          <h3 class="subsection-title">Resumo de Papel</h3>
-          <p>
-            Rika é um espírito amaldiçoado extremamente agressiva e protetora,
-            funcionando como criatura conjurada que defende Okkotsu e causa dano
-            elevado.
-          </p>
-
-          <h3 class="subsection-title">Habilidades e Ações</h3>
-
-          <!-- Puro Amor -->
-          <div class="ability">
-            <h4 class="ability-title">Puro Amor</h4>
-            <ul class="ability-list">
-              <li><strong>Tipo:</strong> Técnica Ofensiva Especial</li>
-              <li><strong>Custo:</strong> 4 PEA</li>
-              <li><strong>Uso:</strong> 1 vez por descanso longo</li>
-              <li><strong>Pré-requisito:</strong> Rika deve estar invocada</li>
-              <li><strong>Ação Necessária:</strong> 1 Ação</li>
-              <li><strong>Área:</strong> Cone de 9 m</li>
-              <li><strong>Teste de Resistência:</strong> Destreza CD 20</li>
-              <li>
-                <strong>Efeito:</strong> Falha: 8dX + 8dX de dano amaldiçoado;
-                Sucesso: metade do dano
-              </li>
-              <li>
-                <strong>Especial:</strong> Se derrotar um inimigo, Okkotsu
-                recupera 2 PEA
-              </li>
-              <li>
-                Inimigos marcados sofrem desvantagem contra efeitos de energia
-                amaldiçoada até o final do próximo turno
-              </li>
-              <li>
-                <strong>Combo Hook:</strong> Se usado após
-                <em>Mordida Amaldiçoada</em> ou <em>Investida Amaldiçoada</em>,
-                o dano aumenta em +4dX
-              </li>
-            </ul>
-          </div>
-
-          <!-- Mordida Amaldiçoada -->
-          <div class="ability">
-            <h4 class="ability-title">Mordida Amaldiçoada</h4>
-            <ul class="ability-list">
-              <li>
-                <strong>Ataque Corpo a Corpo:</strong> +6 para atingir, alcance
-                1,5 m, um alvo
-              </li>
-              <li><strong>Dano:</strong> 4dX + 1dX + 6 perfurante</li>
-              <li>
-                <strong>Controle:</strong> Se alvo estiver marcado por
-                prisões/controle de Okkotsu, sofre desvantagem em testes de
-                Força para resistir a quedas
-              </li>
-              <li>
-                <strong>Especial:</strong> Se alvo cair a 0 PV, Okkotsu pode
-                gastar 1 PEA para um ataque extra como ação bônus
-              </li>
-              <li>
-                Se usado após <em>Flash Negro</em> de Okkotsu: +3dX de dano
-                adicional
-              </li>
-            </ul>
-          </div>
-
-          <!-- Investida Amaldiçoada -->
-          <div class="ability">
-            <h4 class="ability-title">Investida Amaldiçoada</h4>
-            <ul class="ability-list">
-              <li>
-                <strong>Ataque:</strong> +6 para atingir, alcance 6 m em linha
-                reta, um alvo
-              </li>
-              <li><strong>Dano:</strong> 2dX + 2dX + 5 perfurante</li>
-              <li>
-                <strong>Empurrão:</strong> Teste de Força CD 15 (falha =
-                empurrado 3 m)
-              </li>
-              <li>
-                <strong>Especial:</strong> Se atingir parede/obstáculo, Okkotsu
-                pode disparar ataque de energia amaldiçoada como ação bônus
-              </li>
-              <li>
-                Se combinado com <em>Prisão Amaldiçoada</em>, alvo sofre
-                desvantagem em testes de Destreza para escapar
-              </li>
-            </ul>
-          </div>
-
-          <!-- Proteção do Invocador -->
-          <div class="ability">
-            <h4 class="ability-title">Proteção do Invocador</h4>
-            <ul class="ability-list">
-              <li>
-                <strong>Reação:</strong> Quando Okkotsu sofre dano a até 6 m
-              </li>
-              <li>
-                <strong>Efeito:</strong> Rika absorve o ataque, dividindo ou
-                recebendo todo o dano
-              </li>
-              <li>
-                <strong>Especial:</strong> Se o ataque derrubaria Okkotsu a 0
-                PV, ele recupera 1 PEA
-              </li>
-              <li>
-                Combinado com <em>Reforço Corporal</em>, concede +1dX de
-                resistência adicional
-              </li>
-            </ul>
-          </div>
-
-          <!-- Ataque de Energia Amaldiçoada -->
-          <div class="ability">
-            <h4 class="ability-title">Ataque de Energia Amaldiçoada</h4>
-            <ul class="ability-list">
-              <li>
-                <strong>Ação Bônus do Invocador:</strong> +6 + mod. de energia
-                para atingir, alcance 9 m
-              </li>
-              <li>
-                <strong>Dano:</strong> 5dX + mod. de Energia (+3dX adicional em
-                combo)
-              </li>
-              <li>
-                <strong>Teste:</strong> Destreza CD 15 para metade do dano
-              </li>
-              <li>
-                <strong>Especial:</strong> Se usado após <em>Mordida</em> ou
-                <em>Investida</em>, aumenta +3dX por ataque bem-sucedido
-              </li>
-              <li>
-                Se atingir múltiplos inimigos, os seguintes sofrem metade do
-                dano adicional acumulado
-              </li>
-            </ul>
-          </div>
-          <!-- Reforço Corporal -->
-
-             <div class="ability">
-            <h4 class="ability-title">Reforço Corporal</h4>
-            <ul class="ability-list">
-              <li>
-                <strong>custo PEA:</strong> 1
-              </li>
-              <li>
-                <strong>Ação:</strong> Bonus
-              </li>
-              <li>D
-                <strong>Efeito:</strong> Adiciona +d4 ao dano ou à CA/ resistência contra o próximo ataque físico recebido.
-              </li>
-              <li>
-                <strong>Especial:</strong> 
-Combo Hook: Se o reforço for usado em ataque e o alvo cair a 0 PV, você pode imediatamente gastar 1 PEA adicional para fazer outro ataque como reação.
-
-              </li>
-            </ul>
-          </div>
-        
-               <div class="ability">
-            <h4 class="ability-title">Prisão amaldiçoada</h4>
-            <ul class="ability-list">
-              <li>
-                <strong>custo PEA:</strong> 3
-              </li>
-              <li>
-                <strong>Ação:</strong> principal
-              </li>
-              <li>
-                <strong>Efeito:</strong> Um inimigo fica preso no lugar até o fim do próximo turno. Ele pode tentar escapar com teste  de Força ou Destreza contra sua CD de energia amaldiçoada.
-<li>Alcance: 10 pés
-</li>
-              </li>
-              <li>
-                <strong>Combo hook:</strong> 
-Combo Hook: Se o inimigo não conseguir escapar, qualquer ataque ou habilidade usada contra ele ganha +1dX de dano ou outro efeito secundário escolhido (ex.: empurrar, derrubar).
-
-              </li>
-            </ul>
-          </div>
-
-
-              <div class="ability">
-            <h4 class="ability-title">Golpe da sombra </h4>
-            <ul class="ability-list">
-              <li>
-                <strong>custo PEA:</strong> 2
-              </li>
-              <li>
-                <strong>Ação:</strong> Principal
-              </li>
-              <li>
-                <strong>Efeito:</strong> O inimigo sofre desvantagem em testes de resistência de Sabedoria até o próximo turno.
-
-              </li>
-
-              <li>Dano: 2dX + mod. do atributo de energia
-</li>
-              <li>
-                <strong>Combo hook:</strong> 
-Se o alvo já estiver com desvantagem ou marcado (ex: Visão da Energia ou Prisão Amaldiçoada), você pode gastar 1 PEA extra para reforçar o efeito, fazendo com que o próximo ataque que você ou aliados fizerem contra ele ignore resistências.
-
-              </li>
-
-
-                 <div class="ability">
-            <h4 class="ability-title"> Flash Negro</h4>
-            <ul class="ability-list">
-              <li>
-                <strong>custo PEA:</strong> 1
-              </li>
-              <li>
-                <strong>Ação:</strong> Principal
-              </li>
-              <li>
-                <strong>Efeito:</strong> Corpo a corpo ou à distância (dependendo do estilo do personagem)
-
-
-              </li>
-
-              <li>Descrição: O Flash Negro é um ataque devastador que sincroniza energia amaldiçoada com impacto físico, distorcendo espaço-tempo no ponto de contato. Difícil de executar, mas extremamente poderoso: cada acerto bem-sucedido prepara o terreno para combos consecutivos, aumentando o dano e a vantagem estratégica do usuário.
-Para usar o Flash Negro, declare o ataque antes de rolar. Faça um Teste de Controle de Energia Amaldiçoada, com CD igual a 15 + nível do inimigo.
-Se falhar levemente (até 4 abaixo da CD), o ataque é normal, mas o usuário sofre fadiga: -1 em Ataque e CA até o próximo turno.
-
-Se falhar gravemente (5 ou mais abaixo da CD), o ataque é normal e o usuário sofre retrocesso: 3dX de dano + desvantagem no próximo ataque.
-
-Se tiver sucesso (0 a 4 acima da CD), o Flash Negro é ativado: +1 dado de dano.
-
-Se tiver sucesso extremo (5 ou mais acima da CD), o Flash Negro ativa seu potencial máximo: o dano é dobrado, o usuário recupera 1 PEA, ganha +1 dado extra acumulativo para o próximo ataque e +2 em Ataque até o próximo turno. Além disso, cria um efeito visual dramático de distorção temporal no ponto de impacto.
-
-> Cada Flash Negro bem-sucedido consecutivo acumula +2 dado extra de dano, até o primeiro ataque falho.
-</li>
-              <li>Overcharge
-Gaste 2 PEA adicionais para que o próximo Flash Negro atinga todos os inimigos adjacentes ao alvo primário, causando metade do dano. Excelente para explosões em área ou situações de múltiplos inimigos.</li>
-              <li>
-                <strong>Combo hook:</strong> 
-Se usado em sequência com ataques, magias ou técnicas que marquem o alvo (como Visão da Energia ou Prisão Amaldiçoada), cada Flash Negro bem-sucedido ganha +1 dado extra e ignora resistências.
-
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- História -->
-        <section class="section" aria-labelledby="historia-title">
-          <h2 id="historia-title" class="section-title">História</h2>
-
-          <!-- Infância de Akihiro -->
-          <section aria-labelledby="infancia-title">
-            <h3 id="infancia-title" class="section-subtitle">Infância</h3>
-            <p>
-              Akihiro era uma criança quieta. Não por falta de palavras, mas
-              porque sentia que o mundo era alto demais — cheio de barulhos,
-              gritos e promessas que ele nunca conseguia entender. Vivia com os
-              avós em uma casa antiga, onde o tempo parecia dormir entre os
-              móveis. Seu pai trabalhava longe, e a mãe passava mais tempo
-              doente do que viva dentro da própria pele.
-            </p>
-            <p>
-              Desde cedo, Akihiro aprendeu que o silêncio podia ser uma forma de
-              proteção. Gostava de colecionar folhas secas, ouvir o som da chuva
-              batendo no telhado, observar as nuvens mudarem de forma.
-            </p>
-            <p>
-              E foi em uma dessas tardes, entre o som dos trovões e o cheiro de
-              terra molhada, que ele a viu pela primeira vez: Rika Orimoto. Ela
-              estava debaixo de uma árvore, tentando proteger um gato da chuva,
-              o rosto sujo de lama, mas com um sorriso que parecia acender o
-              céu. Ele não soube o que dizer — só ficou ali, parado, observando
-              o riso dela se misturar com o barulho da água.
-            </p>
-            <p>
-              “Você gosta de chuva?” ela perguntou, sem nem olhar pra ele.
-              “Gosto… quando não tem trovão.” “Então, vamos fazer um trato: eu
-              fico com os trovões, e você com a chuva.” E assim começou.
-            </p>
-          </section>
-
-          <!-- A amizade e o amor -->
-          <section aria-labelledby="amizade-title">
-            <h3 id="amizade-title" class="section-subtitle">
-              Amizade e Promessa
-            </h3>
-            <p>
-              Rika era o oposto de Akihiro. Falava alto, ria fácil, desafiava o
-              mundo como se nada pudesse quebrá-la. Mas quando ficavam sozinhos,
-              ela mostrava o que escondia dos outros — o medo de perder o pai, a
-              ausência da mãe, a solidão que fingia não sentir. Akihiro a ouvia
-              em silêncio, e isso bastava. Talvez fosse esse o início do amor: o
-              silêncio dele se encaixando no caos dela.
-            </p>
-            <p>
-              Com o passar dos anos, os dois criaram um pequeno mundo. Um
-              esconderijo no campo atrás da escola, onde deixavam cartas,
-              desenhos, folhas e pequenas promessas. Lá, tudo era deles — nenhum
-              adulto, nenhuma dor, apenas as duas crianças que acreditavam que o
-              amor era algo simples.
-            </p>
-            <p>
-              “Quando crescermos, você ainda vai ficar comigo?” “Por quê?”
-              “Porque eu quero. E porque você é o único que não me olha com
-              pena.” Akihiro não respondeu. Só segurou a mão dela. Foi ali que o
-              amor tomou forma — discreto, puro e inevitável.
-            </p>
-            <p>
-              Na primavera seguinte, Rika começou a mudar. Falava mais devagar,
-              dormia menos, e às vezes olhava para o nada com olhos marejados. A
-              morte da mãe dela — rápida, silenciosa, inexplicável — abriu uma
-              ferida que ela escondia com sorrisos falsos. Akihiro não sabia o
-              que dizer. Então ficou ao lado dela, em todas as tardes frias,
-              esperando que o tempo curasse o que nem o tempo sabia curar. E
-              curou, um pouco, porque ela voltou a sorrir.
-            </p>
-            <p>
-              Um dia, ela chamou Akihiro até a beira do rio — o mesmo onde se
-              conheceram. Tirou um anel da corrente que trazia no pescoço, as
-              mãos tremendo, e disse: “Akihiro… me promete uma coisa?” “Qual?”
-              “Que, quando crescermos, vamos nos casar. Que você vai sempre me
-              lembrar disso.” Akihiro riu, corando. “Você está falando sério?”
-              “Mais sério do que qualquer coisa neste mundo.” “Então… eu
-              prometo.” Ela sorriu, deslizando o anel no dedo dele com cuidado,
-              como se aquele gesto pudesse prender o tempo naquele momento.
-            </p>
-          </section>
-
-          <!-- O acidente -->
-          <section aria-labelledby="acidente-title">
-            <h3 id="acidente-title" class="section-subtitle">O Acidente</h3>
-            <p>
-              O verão chegou com seu calor pesado, mas Akihiro mal percebeu.
-              Cada dia era preenchido com o riso de Rika, os pequenos gestos que
-              só eles compartilhavam, e a sensação crescente de que aquele mundo
-              poderia ser deles, se permanecessem juntos. Então veio o dia da
-              excursão à cidade vizinha — uma aventura simples que o pai de Rika
-              sugeriu, para que ela e Akihiro pudessem ver o mundo além das
-              margens do rio.
-            </p>
-            <p>
-              No caminho de volta, Rika correu à frente, rindo, o cabelo
-              balançando com o vento. Akihiro corria atrás dela, tentando
-              alcançá-la, quando o carro surgiu — rápido, impossível de evitar.
-              Havia gritos, a súbita sensação de queda, o barulho metálico que
-              ecoa em alguém para sempre, e depois, silêncio.
-            </p>
-            <p>
-              Akihiro abriu os olhos e só havia escuridão. Rika estava caída,
-              imóvel. Ele correu até ela, chamando seu nome, batendo no ombro
-              dela, tentando arrancar a vida de volta com mãos que tremiam
-              demais. Mas o corpo dela não respondeu. Ele segurou o anel que ela
-              lhe dera, agora pesado como uma pedra. E naquele instante, antes
-              que pudesse compreender a própria dor, ele pronunciou o nome dela
-              — “Rika…”
-            </p>
-            <p>
-              A palavra escapou de seus lábios como um sopro desesperado, e com
-              ela, algo mudou. O amor que os unia, puro e inocente, se
-              transformou em algo impossível de conter. O mundo curvou-se, como
-              se a própria realidade escutasse seu lamento, e o eco daquele amor
-              preso à vida se tornou algo que ninguém poderia tocar sem pagar um
-              preço. Rika não estava mais apenas viva ou morta. Ela estava presa
-              a ele — como promessa, como lembrança, como maldição.
-            </p>
-          </section>
-
-          <!-- Primeiros dias da maldição -->
-          <section aria-labelledby="dias-malditos-title">
-            <h3 id="dias-malditos-title" class="section-subtitle">
-              Primeiros Dias da Maldição
-            </h3>
-            <p>
-              Akihiro mal conseguia respirar. Cada respiração era um punhal de
-              silêncio. O hospital estava cheio de vozes, passos e alarmes, mas
-              nenhum som chegava até ele. Só havia Rika — ou pelo menos, a
-              sombra dela, o peso dela, o que restava do que não podia ser
-              levado embora.
-            </p>
-            <p>
-              Nos dias que se seguiram, Akihiro começou a perceber pequenas
-              coisas impossíveis. As sombras se mexiam quando ela ficava perto.
-              Objetos caíam sem explicação. O vento trazia risadinhas que
-              ninguém mais ouvia. Ele não podia se aproximar de ninguém; cada
-              gesto poderia despertar o ódio silencioso de Rika, que ainda
-              estava presa ao seu coração.
-            </p>
-            <p>
-              Ele começou a entender a verdade amarga: o amor que os unia não
-              era mais apenas bonito ou doce. Era um peso, uma força viva, uma
-              maldição silenciosa que se alimentava de sua dor e de sua devoção.
-              E, mesmo assim, ele não recuou. Porque Rika era tudo que ele
-              amava.
-            </p>
-          </section>
-
-          <!-- Seis anos depois -->
-          <section aria-labelledby="primeiro-ataque-title">
-            <h3 id="primeiro-ataque-title" class="section-subtitle">
-              Seis Anos Depois — O Primeiro Grito da Maldição
-            </h3>
-            <p>
-              Seis anos haviam passado. Akihiro cresceu, mas o tempo não aliviou
-              a solidão. Ele caminhava pelos corredores da escola com olhos
-              atentos, evitando qualquer contato. Todos conheciam a história: o
-              menino solitário, o estranho, o “que traz azar”. Ninguém sabia que
-              a verdadeira razão de seu isolamento não era timidez ou medo — era
-              Rika.
-            </p>
-            <p>
-              Rika havia envelhecido, mas não como os outros. Algo dentro dela
-              se transformou, assumindo uma forma que nenhum humano poderia
-              compreender — uma presença monstruosa e inexplicável, mas que
-              ainda carregava os olhos que Akihiro conhecia.
-            </p>
-            <p>
-              Naquele dia, dois garotos se aproximaram, rindo baixo, pensando
-              que Akihiro não os veria. “Olha o franguinho solitário”, zombaram.
-              “Vai chorar, Okkotsu?”
-            </p>
-            <p>
-              Akihiro tentou ignorar, como sempre. Mas algo dentro dele se
-              rompeu. Ele sentiu Rika pressionando, exigindo justiça, sua
-              presença monstruosa preenchendo o espaço ao redor.
-            </p>
-            <p>
-              Um rugido silencioso ecoou na mente dele — o primeiro grito de
-              Rika em sua forma verdadeira. Ele não moveu um dedo, não falou uma
-              palavra. Mas os garotos, que haviam se aproximado para provocar,
-              pararam. Sentiram o ar mudar, pesado como ferro fundido, e algo
-              invisível os empurrou com força. Um deles tropeçou, o outro foi
-              lançado contra a parede. Rika se materializou — enorme,
-              monstruosa, inexplicável, mas ainda com os olhos que ele amava.
-            </p>
-            <p>
-              Akihiro fechou os olhos, sentindo a presença dela envolvê-lo. Ele
-              não queria que ninguém morresse. Mas não podia deter Rika. Quando
-              abriu os olhos, o corredor estava vazio. Silêncio absoluto. E no
-              meio daquele silêncio, Rika voltou a aparecer, agora com sua forma
-              monstruosa se desvanecendo lentamente, revelando apenas o olhar
-              doce e familiar de sempre.
-            </p>
-            <p>
-              Akihiro sabia que nada mais seria como antes. O mundo havia
-              mudado. Ele havia mudado. E Rika, seu amor eterno e maldição,
-              nunca mais deixaria que ele fosse ferido.
-            </p>
-          </section>
-        </section>
-
-        <!-- Inventário -->
-        <section class="section" aria-labelledby="inventario-title">
-          <h2 id="inventario-title" class="section-title">Inventário</h2>
-          <p>Yen: <strong class="gold">10</strong></p>
-          <ul>
-            <li>Katana</li>
-            <li>Caderno preto</li>
-            <li>Besta leve + 20 virotes</li>
-
-            <li>Roupas comuns</li>
-            <li>
-              <a href=" inventario.html" class="abrir-inv">abrir inventario</a>
-            </li>
-          </ul>
-        </section>
-      </article>
-    </main>
-
-    <div class="snow" aria-hidden="true"></div>
-    <script src="js/snow.js"></script>
-    <script src="js/script.js" defer></script>
+    <!-- Theme JS -->
+    <script src="js/garou-theme.js"></script>
   </body>
 </html>
-
-
