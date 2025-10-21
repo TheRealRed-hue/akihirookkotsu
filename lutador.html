@@ -3,76 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ficha de RPG - Casado com maldição</title>
-    <link rel="stylesheet" href="css/snow.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Lutador — Garou Instinct</title>
+
+    <!-- Fontes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Orbitron:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tema Garou -->
+    <link rel="stylesheet" href="css/garou-theme.css" />
+
+    <!-- CSS específico (lutador) -->
+    <link rel="stylesheet" href="css/lutador.css" />
+
     <link rel="icon" type="image/png" href="img/logo.png" />
+    <meta name="theme-color" content="#0b0d0e" />
   </head>
+
   <body>
-    <!-- Runas -->
-    <div class="rune" aria-hidden="true"></div>
+    <!-- Canvas de energia (efeito visual dinâmico) -->
+    <canvas id="garouCanvas" aria-hidden="true"></canvas>
 
-    <main class="container">
-      <article class="character-sheet">
-        <!-- Header -->
-        <header class="header">
-          <h1 class="character-name">Lutador Classe</h1>
-        </header>
+    <div class="garou-root">
+      <header class="garou-header">
+        <div class="title-wrap">
+          <h1 class="char-name">Lutador</h1>
+          <div class="char-sub">Discípulo do Caos • Mestre do Corpo</div>
+        </div>
 
-        <!-- Proficiências -->
-        <section class="proficiencies">
-          <h2>Proficiências</h2>
-          <ul>
-            <li><strong>Perícias:</strong>Acrobacia, Intimidação</li>
+        <div class="controls">
+          <a href="index.html" class="btn small ghost">Ficha</a>
+          <a href="inventario.html" class="btn small ghost">Arsenal</a>
+          <button id="toggleEnergy" class="btn small">Alternar Aura</button>
+        </div>
+      </header>
+
+      <main class="sheet container">
+        <section class="card proficiencies">
+          <h2 class="section-title">Proficiências</h2>
+          <ul class="ability-list">
+            <li><strong>Perícias:</strong> Acrobacia, Intimidação</li>
           </ul>
         </section>
 
-        <!-- Estilos de Luta -->
-        <section class="abilities">
-          <h2 class="section-title">Defesa sem armadura</h2>
+        <section class="card abilities">
+          <h2 class="section-title">Defesa Sem Armadura</h2>
           <div class="ability">
-            <h3 class="ability-title"></h3>
             <p class="ability-text">
               Quando você não estiver vestindo nenhuma armadura nem empunhando
-              um escudo, sua Classe de Armadura será 10 + seu modificador de
-              Destreza + seu modificador de Constituição.
+              um escudo, sua Classe de Armadura será:
+              <strong>10 + Destreza + Constituição</strong>.
             </p>
           </div>
 
+          <div class="divider"></div>
+
+          <h2 class="section-title">Fundamentos Marciais</h2>
+
           <div class="ability">
-            <h3 class="ability-title">FUNDAMENTOS MARCIAIS</h3>
-            <p class="ability-text">
-              <strong>Mão pesada.</strong> Você pode rolar um d4 no lugar do
-              dano normal dos seus golpes desarmados. Esse dado muda à medida
-              que você adquire níveis de Lutador, como mostrado na coluna
-              “Fundamentos Marciais” na tabela O Lutador.
-            </p>
-            <p>
-              <strong>Fluidez</strong>. Você pode usar Destreza ao invés de
-              Força para as jogadas de ataque e dano dos seus golpes desarmados.
-            </p>
-            <p>
-              <strong>Golpe no Ponto Vital.</strong> Seu crítico natural para
-              ataques desarmados é de 19 a 20.
-            </p>
-            <p>
-              <strong>Sequência.</strong> Sempre que fizer um ataque e ser um
-              crítico natural, você ganha um ataque adicional que pode ser feito
-              imediatamente após seu crítico natural.
-            </p>
-            <p>
-              <strong>Submissão.</strong> Você pode fazer uma tentativa de
-              agarrão ou encontrão como ação bônus, caso tenha acertado um
-              ataque no seu turno.
-            </p>
-            <p>
-              <strong>Mudança de forma.</strong> Seus ataques desarmados podem
-              causar dano de Concussão, Perfurante ou Cortante, a sua escolha.
-              Mesmo usando armas corporais que causam outro tipo de dano.
-            </p>
+            <ul class="ability-list">
+              <li>
+                <strong>Mão Pesada:</strong> Você pode rolar um
+                <strong>d4</strong> no lugar do dano normal dos seus golpes
+                desarmados. Esse dado evolui conforme seus níveis de Lutador.
+              </li>
+              <li>
+                <strong>Fluidez:</strong> Use Destreza em vez de Força para
+                jogadas de ataque e dano de golpes desarmados.
+              </li>
+              <li>
+                <strong>Golpe no Ponto Vital:</strong> Seu crítico natural para
+                ataques desarmados é <strong>19–20</strong>.
+              </li>
+              <li>
+                <strong>Sequência:</strong> Ao obter um crítico natural, você
+                ganha um ataque adicional imediato.
+              </li>
+              <li>
+                <strong>Submissão:</strong> Pode tentar um agarrão ou encontrão
+                como <strong>ação bônus</strong> após um ataque bem-sucedido.
+              </li>
+              <li>
+                <strong>Mudança de Forma:</strong> Seus ataques desarmados podem
+                causar <em>Concussão, Perfurante</em> ou <em>Cortante</em>, à
+                sua escolha — mesmo com armas corporais que causam outro tipo de
+                dano.
+              </li>
+            </ul>
           </div>
         </section>
-      </article>
-    </main>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/garou-theme.js"></script>
   </body>
 </html>
