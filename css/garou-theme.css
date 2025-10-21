@@ -1,0 +1,415 @@
+/* garou-theme.css
+   Theme: Garou Instinct
+   Replace your existing style.css with this or include it and adapt.
+*/
+
+/* Fonts loaded in the HTML */
+:root {
+  --bg-0: #070809;
+  --bg-1: #0e1112;
+  --panel: rgba(18, 20, 22, 0.75);
+  --muted: #9aa7a5;
+  --accent-red: #d94c4c;
+  --accent-cyan: #47d6e6;
+  --accent-neutral: #cfcfcf;
+  --glass: rgba(255, 255, 255, 0.03);
+  --card-radius: 14px;
+  --glow-red: 0 0 18px rgba(217, 76, 76, 0.12), 0 0 60px rgba(217, 76, 76, 0.06);
+  --glow-cyan: 0 0 18px rgba(71, 214, 230, 0.12),
+    0 0 60px rgba(71, 214, 230, 0.06);
+  --max-width: 1200px;
+}
+
+.ability-title {
+  font-family: Orbitron, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-neutral);
+  margin-bottom: 6px;
+  letter-spacing: 0.6px;
+}
+
+/* reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: radial-gradient(
+      1200px 600px at 10% 10%,
+      rgba(71, 214, 230, 0.03),
+      transparent 8%
+    ),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1) 60%);
+  color: var(--accent-neutral);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 20px;
+}
+
+/* canvas overlay fills body */
+#garouCanvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* root container */
+.garou-root {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Header */
+.garou-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.char-name {
+  font-family: Orbitron, sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 2.25rem;
+  color: var(--accent-neutral);
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.7), 0 0 18px rgba(0, 0, 0, 0.6);
+}
+.char-sub {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* controls */
+.controls {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.btn {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--accent-neutral);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+.btn.small {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+.btn:hover {
+  transform: translateY(-3px);
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.04);
+}
+
+/* main layout */
+.sheet {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1rem;
+  align-items: start;
+  z-index: 3;
+}
+
+/* left col */
+.left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* card base */
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.14)
+  );
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.01)
+  );
+}
+
+/* portrait */
+.portrait {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.portrait-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  display: block;
+  border: 3px solid rgba(255, 255, 255, 0.03);
+}
+.energy-rings {
+  position: absolute;
+  inset: auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* section titles */
+.section-title {
+  font-family: Orbitron, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accent-neutral);
+  margin-bottom: 10px;
+  letter-spacing: 0.6px;
+}
+
+/* stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.stat-block {
+  padding: 10px;
+  border-radius: 8px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.25),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  text-align: center;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.stat-block:hover {
+  transform: translateY(-6px);
+}
+.stat-block .label {
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+.stat-block .value {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--accent-neutral);
+}
+
+/* abilities */
+.ability-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ability-list li {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 4px solid rgba(255, 255, 255, 0.02);
+}
+.ability-list li strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent-neutral);
+}
+.mark-instinct {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+.mark-aura {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+/* combat cards */
+.combat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.combat-item {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+.combat-item .label {
+  color: var(--muted);
+  font-weight: 700;
+}
+.combat-item .value {
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+.value.hp {
+  color: var(--accent-red);
+  text-shadow: var(--glow-red);
+}
+
+/* inventory */
+.inv-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.inv-list li {
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+/* small helpers */
+.meta {
+  color: var(--muted);
+  font-weight: 700;
+}
+.section .glow-red {
+  box-shadow: var(--glow-red);
+}
+.section .glow-cyan {
+  box-shadow: var(--glow-cyan);
+}
+
+/* aura toggle state */
+/* aura toggle state */
+:root[data-aura="red"] {
+  --a1: var(--accent-red);
+  --a-glow: var(--glow-red);
+}
+:root[data-aura="cyan"] {
+  --a1: var(--accent-cyan);
+  --a-glow: var(--glow-cyan);
+}
+
+/* elementos que mudam conforme a aura */
+body[data-aura="red"],
+:root[data-aura="red"] .card {
+  border-color: rgba(217, 76, 76, 0.2);
+  box-shadow: var(--glow-red);
+}
+body[data-aura="cyan"],
+:root[data-aura="cyan"] .card {
+  border-color: rgba(71, 214, 230, 0.2);
+  box-shadow: var(--glow-cyan);
+}
+
+/* títulos e botões reativos */
+:root[data-aura="red"] .section-title,
+:root[data-aura="red"] .btn:hover {
+  color: var(--accent-red);
+  text-shadow: 0 0 10px rgba(217, 76, 76, 0.6);
+}
+
+:root[data-aura="cyan"] .section-title,
+:root[data-aura="cyan"] .btn:hover {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(71, 214, 230, 0.6);
+}
+
+:root[data-aura="red"] .value.hp {
+  color: var(--accent-red);
+  text-shadow: var(--glow-red);
+}
+:root[data-aura="cyan"] .value.hp {
+  color: var(--accent-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+/* botão pressionado */
+.btn[aria-pressed="true"] {
+  box-shadow: var(--a-glow);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* apply aura color to accents */
+.card[data-aura] {
+  border-color: rgba(255, 255, 255, 0.03);
+}
+.char-name {
+  color: var(--accent-neutral);
+}
+.btn[aria-pressed="true"] {
+  box-shadow: var(--a-glow);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .sheet {
+    grid-template-columns: 1fr;
+    padding-bottom: 1rem;
+  }
+  .portrait-image img {
+    max-width: 280px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .stats-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .char-name {
+    font-size: 1.6rem;
+  }
+  .controls {
+    flex-wrap: wrap;
+  }
+}
