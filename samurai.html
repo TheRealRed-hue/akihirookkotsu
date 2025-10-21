@@ -3,47 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ficha de RPG - Casado com maldição</title>
-    <link rel="stylesheet" href="css/snow.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Samurai — Casado com Maldição</title>
+
+    <!-- Fontes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Orbitron:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tema Garou -->
+    <link rel="stylesheet" href="css/garou-theme.css" />
+
+    <!-- CSS específico -->
+    <link rel="stylesheet" href="css/lutador.css" />
+
     <link rel="icon" type="image/png" href="img/logo.png" />
+    <meta name="theme-color" content="#0b0d0e" />
   </head>
+
   <body>
-    <!-- Runas -->
+    <!-- Runas ou Canvas de energia -->
     <div class="rune" aria-hidden="true"></div>
 
-    <main class="container">
-      <article class="character-sheet">
-        <!-- Header -->
-        <header class="header">
-          <h1 class="character-name">Samurai Classe</h1>
-        </header>
+    <div class="garou-root">
+      <header class="garou-header">
+        <div class="title-wrap">
+          <h1 class="char-name">Samurai Classe</h1>
+          <div class="char-sub">Discípulo da Honra • Mestre da Espada</div>
+        </div>
 
+        <div class="controls">
+          <a href="index.html" class="btn small ghost">Ficha</a>
+          <a href="inventario.html" class="btn small ghost">Arsenal</a>
+        </div>
+      </header>
+
+      <main class="sheet container">
         <!-- Proficiências -->
-        <section class="proficiencies">
-          <h2>Proficiências</h2>
-          <ul>
+        <section class="card proficiencies">
+          <h2 class="section-title">Proficiências</h2>
+          <ul class="ability-list">
+            <li><strong>Armadura:</strong> Leves, médias e escudos</li>
             <li>
-              <strong>Armadura:</strong> Armaduras leves, médias e escudos
+              <strong>Armas:</strong> Katana, Naginata, Lanças e Armas Marciais
             </li>
-            <li>
-              <strong>Armas:</strong> Katana, naginata, lanças e armas marciais
-            </li>
-            <li><strong>Ofício:</strong> Caligrafia e forja tradicional</li>
+            <li><strong>Ofício:</strong> Caligrafia e Forja Tradicional</li>
             <li><strong>Salvaguarda:</strong> Sabedoria e Constituição</li>
             <li><strong>Perícias:</strong> Atletismo, Intuição e História</li>
           </ul>
         </section>
 
         <!-- Especialidade Marcial -->
-        <section class="abilities">
+        <section class="card abilities">
           <h2 class="section-title">Especialidade Marcial</h2>
-
           <p class="ability-text">
             Você adota um estilo marcial particular que será sua especialidade.
-            Escolha uma das opções a seguir. Você não pode escolher a mesma
-            Especialidade Marcial mais de uma vez, mesmo se puder escolher de
-            novo.
+            Não é possível escolher a mesma mais de uma vez.
           </p>
 
           <div class="ability">
@@ -57,29 +72,19 @@
           <div class="ability">
             <h3 class="ability-title">Luta Contra a Desonra</h3>
             <p class="ability-text">
-              O medo da desonra e o descumprimento de seus objetivos de vida
-              concede ao Samurai motivação para lutar contra a derrota mesmo
-              quando seu corpo chega ao limite.
+              Quando o Samurai atinge <strong>0 pontos de vida</strong>, sua
+              honra concede <strong>1d4 + 1 de vida</strong>.
             </p>
-            <ul>
+            <ul class="ability-list">
+              <li>Incremento de +1d4 ao atingir os níveis 5º, 11º e 20º</li>
               <li>
-                Quando o Samurai atinge
-                <strong>0 (zero) pontos de vida</strong> em combate, seu desejo
-                por manter sua honra o dá motivação para retomar os sentidos,
-                concedendo <strong>1d4 + 1 de vida</strong>.
-              </li>
-              <li>
-                Ao atingir o <strong>5º, 11º e 20º nível</strong>, há um
-                incremento de <strong>+1d4</strong> nesta característica.
-              </li>
-              <li>
-                Uma vez que você use essa característica, você precisa terminar
-                um <strong>descanso curto ou longo</strong> para usá-la de novo.
+                Uso só pode ser repetido após um
+                <strong>descanso curto ou longo</strong>
               </li>
             </ul>
           </div>
         </section>
-      </article>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
